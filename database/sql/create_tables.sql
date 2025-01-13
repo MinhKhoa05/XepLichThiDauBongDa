@@ -48,18 +48,6 @@ CREATE TABLE Players (
     FOREIGN KEY (TeamID) REFERENCES Teams(TeamID)
 );
 
---- Bảng Đăng ký Giải Đấu ---
-CREATE TABLE Registrations (
-    RegistrationID INT NOT NULL,
-    TournamentID INT NOT NULL,
-    TeamID INT NOT NULL,
-    RegistrationsDate DATETIME NOT NULL,
-    Status NVARCHAR(50) NOT NULL,
-    PRIMARY KEY (RegistrationID, TournamentID, TeamID),
-    FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID),
-    FOREIGN KEY (TeamID) REFERENCES Teams(TeamID)
-);
-
 --- Bảng Vòng Đấu ---
 CREATE TABLE Rounds (
     RoundID INT NOT NULL,
