@@ -5,7 +5,7 @@ USE QuanLyBongDa;
 ---- Quản lý Đội Bóng ----
 -- Bảng Sân Vận Động --
 CREATE TABLE Stadiums (
-    StadiumID INT PRIMARY KEY,
+    StadiumID INT IDENTITY(1, 1) PRIMARY KEY,
     StadiumName NVARCHAR(50) NOT NULL,
     Location NVARCHAR(50) NOT NULL,
     Capacity INT NOT NULL
@@ -13,7 +13,7 @@ CREATE TABLE Stadiums (
 
 -- Bảng Tình trạng SVD --
 CREATE TABLE StadiumStatus (
-    StatusID INT NOT NULL,
+    StatusID INT IDENTITY(1, 1) NOT NULL,
     StadiumID INT NOT NULL,
     Status NVARCHAR(50) NOT NULL,
     StartDate DATETIME NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE StadiumStatus (
 
 -- Bảng Huấn Luyện Viên --
 CREATE TABLE Coachs (
-    CoachID INT PRIMARY KEY,
+    CoachID INT IDENTITY(1, 1) PRIMARY KEY,
     FullName NVARCHAR(50) NOT NULL,
     Email VARCHAR(50) NOT NULL,
     PhoneNumber VARCHAR(10) NOT NULL,
@@ -34,31 +34,33 @@ CREATE TABLE Coachs (
 
 -- Bảng Đội Bóng --
 CREATE TABLE Teams (
-    TeamID INT PRIMARY KEY,
+    TeamID INT IDENTITY(1, 1) PRIMARY KEY,
     TeamName NVARCHAR(50) NOT NULL,
     Logo NVARCHAR(MAX),
     CoachID INT NOT NULL,
     StadiumID INT NOT NULL,
+
     FOREIGN KEY(CoachID) REFERENCES Coachs(CoachID),
     FOREIGN KEY(StadiumID) REFERENCES Stadiums(StadiumID)
 );
 
 -- Bảng Cầu Thủ --
 CREATE TABLE Players (
-    PlayerID INT PRIMARY KEY,
+    PlayerID INT IDENTITY(1, 1) PRIMARY KEY,
     FullName NVARCHAR(50) NOT NULL,
     JerseyNumber TINYINT NOT NULL,
     Position NVARCHAR(50) NOT NULL,
     BirthDate DATE NOT NULL,
     TeamID INT NOT NULL,
     PlayerImage NVARCHAR(MAX),
+
     FOREIGN KEY(TeamID) REFERENCES Teams(TeamID)
 );
 
 ---- Quản lý Giải Đấu ----
 -- Bảng Giải Đấu --
 CREATE TABLE Tournaments (
-    TournamentID INT PRIMARY KEY,
+    TournamentID INT IDENTITY(1, 1) PRIMARY KEY,
     TournamentName NVARCHAR(50) NOT NULL,
     StartDate DATE NOT NULL,
     EndDate DATE NOT NULL
@@ -66,37 +68,31 @@ CREATE TABLE Tournaments (
 
 -- Bảng Vòng Đấu --
 CREATE TABLE Rounds (
+    RoundID INT IDENTITY(1, 1) PRIMARY KEY,
     TournamentID INT NOT NULL,
-    RoundID INT NOT NULL,
-
     RoundName NVARCHAR(50) NOT NULL,
     StartDate DATE NOT NULL,
     EndDate DATE NOT NULL,
-    
-    PRIMARY KEY(RoundID, TournamentID),
-    FOREIGN KEY(TournamentID) REFERENCES Tournaments(TournamentID)
+
+    FOREIGN KEY(TournamentID) REFERENCES Tournaments(TournamentID),
 );
 
 -- Bảng Bảng Đấu / Nhóm Đấu --
 CREATE TABLE Groups (
-    GroupID INT NOT NULL,
-    TournamentID INT NOT NULL,
+    GroupID INT IDENTITY(1, 1) PRIMARY KEY,
     RoundID INT NOT NULL,
-
     GroupName NVARCHAR(50) NOT NULL,
-    PRIMARY KEY(GroupID, TournamentID, RoundID),
-    FOREIGN KEY(RoundID, TournamentID) REFERENCES Rounds(RoundID, TournamentID)
+
+    FOREIGN KEY(RoundID, TournamentID) REFERENCES Rounds(RoundID, TournamentID),
 );
 
 -- Bảng trung gian giữa Teams với Groups --
 CREATE TABLE Groups_Teams (
     GroupID INT NOT NULL,
-    TournamentID INT NOT NULL,
-    RoundID INT NOT NULL,
-
     TeamID INT NOT NULL,
-    PRIMARY KEY(GroupID, TournamentID, RoundID, TeamID),
-    FOREIGN KEY(GroupID, TournamentID, RoundID) REFERENCES Groups(GroupID, TournamentID, RoundID),
+
+    PRIMARY KEY(GroupID, TeamID),
+    FOREIGN KEY(GroupID) REFERENCES Groups(GroupID),
     FOREIGN KEY(TeamID) REFERENCES Teams(TeamID)
 );
 
@@ -113,9 +109,6 @@ CREATE TABLE Tournaments_Teams (
 -- Bảng Rankings --
 CREATE TABLE Rankings (
     GroupID INT NOT NULL,
-    TournamentID INT NOT NULL,
-    RoundID INT NOT NULL,
-
     TeamID INT NOT NULL,
 
     Wins TINYINT NOT NULL DEFAULT 0 CHECK (Wins >= 0),
@@ -130,18 +123,15 @@ CREATE TABLE Rankings (
     MatchesPlayed TINYINT NOT NULL DEFAULT 0 CHECK (MatchesPlayed >= 0),
     Points SMALLINT NOT NULL DEFAULT 0 CHECK(Points >= 0),
     
-    PRIMARY KEY(GroupID, TournamentID, RoundID, TeamID),
-    FOREIGN KEY(GroupID, TournamentID, RoundID) REFERENCES Groups(GroupID, TournamentID, RoundID),
+    PRIMARY KEY(GroupID, TeamID),
+    FOREIGN KEY(GroupID) REFERENCES Groups(GroupID),
     FOREIGN KEY(TeamID) REFERENCES Teams(TeamID)
 );
 
 ---- Quản lý Trận Đấu ----
 -- Bảng Trận Đấu --
 CREATE TABLE Matches (
-    MatchID INT PRIMARY KEY,
-
-    TournamentID INT NOT NULL,
-    RoundID INT NOT NULL,
+    MatchID INT IDENTITY(1, 1) PRIMARY KEY,
     GroupID INT NOT NULL,
 
     HomeTeamID INT NOT NULL,
@@ -150,12 +140,12 @@ CREATE TABLE Matches (
 
     FOREIGN KEY(HomeTeamID) REFERENCES Teams(TeamID),
     FOREIGN KEY(AwayTeamID) REFERENCES Teams(TeamID),
-    FOREIGN KEY(GroupID, TournamentID, RoundID) REFERENCES Groups(GroupID, TournamentID, RoundID),
+    FOREIGN KEY(GroupID) REFERENCES Groups(GroupID),
 );
 
 --- Bảng Trọng Tài ---
 CREATE TABLE Referees (
-    RefereeID INT PRIMARY KEY,
+    RefereeID INT IDENTITY(1, 1) PRIMARY KEY,
     FullName NVARCHAR(50) NOT NULL,
     PhoneNumber VARCHAR(10) NOT NULL,
     Email VARCHAR(50) NOT NULL,
@@ -164,8 +154,8 @@ CREATE TABLE Referees (
 
 --- Bảng Lịch Thi Đấu ---
 CREATE TABLE MatchSchedules (
+    ScheduleID INT IDENTITY(1, 1) NOT NULL,
     MatchID INT NOT NULL,
-    ScheduleID INT NOT NULL,
     Status NVARCHAR(50) NOT NULL,
     MatchDateTime DATETIME NOT NULL,
 
