@@ -70,7 +70,7 @@ CREATE TABLE Matchs (
     MatchID INT IDENTITY(1, 1) PRIMARY KEY,
     Legs BIT NOT NULL,          -- 0 cho luot di, 1 cho luot ve
     isPlayed BIT NOT NULL,
-    StarTime DATETIME NOT NULL,
+    StartTime DATETIME NOT NULL,
     EndTime DATETIME NOT NULL,
     
     RoundID INT NOT NULL,
