@@ -5,22 +5,22 @@ USE XepLichBongDa;
 
 CREATE TABLE Tournaments (
     TournamentID INT IDENTITY(1, 1) PRIMARY KEY,
-    TournamentName NVARCHAR(MAX) NOT NULL,
+    TournamentName NVARCHAR(50) NOT NULL,
     StartDate DATE NOT NULL,
     EndDate DATE NOT NULL
 );
 
 CREATE TABLE Rounds (
     RoundID INT IDENTITY(1, 1) PRIMARY KEY,
-    RoundName NVARCHAR(MAX) NOT NULL,
+    RoundName NVARCHAR(50) NOT NULL,
     TournamentID INT NOT NULL,
     FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID)
 );
 
 CREATE TABLE Stadiums (
     StadiumID INT IDENTITY(1, 1) PRIMARY KEY,
-    StadiumName NVARCHAR(MAX) NOT NULL,
-    Location NVARCHAR(MAX) NOT NULL,
+    StadiumName NVARCHAR(50) NOT NULL,
+    Location NVARCHAR(150) NOT NULL,
     Capacity INT NOT NULL
 );
 
@@ -36,17 +36,17 @@ CREATE TABLE StadiumUsages (
 
 CREATE TABLE Referees (
     RefereeID INT IDENTITY(1, 1) PRIMARY KEY,
-    RefereeName NVARCHAR(MAX) NOT NULL,
-    Email VARCHAR(MAX),
+    RefereeName NVARCHAR(50) NOT NULL,
+    Email VARCHAR(50),
     SDT VARCHAR(11),
-    RefereeImage VARCHAR(MAX)
+    RefereeImage VARCHAR(255)
 );
 
 CREATE TABLE Teams (
     TeamID INT IDENTITY(1, 1) PRIMARY KEY,
-    TeamName NVARCHAR(MAX) NOT NULL,
-    Logo VARCHAR(MAX),
-    Email VARCHAR(MAX),
+    TeamName NVARCHAR(50) NOT NULL,
+    Logo VARCHAR(255),
+    Email VARCHAR(50),
     SDT VARCHAR(11),
     StadiumID INT,
     FOREIGN KEY (StadiumID) REFERENCES Stadiums(StadiumID)
