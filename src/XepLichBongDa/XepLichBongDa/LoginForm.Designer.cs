@@ -56,6 +56,8 @@
             // 
             resources.ApplyResources(this.txbMatKhau, "txbMatKhau");
             this.txbMatKhau.Name = "txbMatKhau";
+            this.txbMatKhau.UseSystemPasswordChar = true;
+            this.txbMatKhau.UseWaitCursor = true;
             // 
             // button1
             // 

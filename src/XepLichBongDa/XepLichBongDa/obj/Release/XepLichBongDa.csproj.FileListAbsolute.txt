@@ -1,0 +1,11 @@
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\bin\Release\XepLichBongDa.exe.config
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\bin\Release\XepLichBongDa.exe
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\bin\Release\XepLichBongDa.pdb
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\obj\Release\XepLichBongDa.csproj.AssemblyReference.cache
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\obj\Release\XepLichBongDa.LoginForm.resources
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\obj\Release\XepLichBongDa.MainForm.resources
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\obj\Release\XepLichBongDa.Properties.Resources.resources
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\obj\Release\XepLichBongDa.csproj.GenerateResource.cache
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\obj\Release\XepLichBongDa.csproj.CoreCompileInputs.cache
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\obj\Release\XepLichBongDa.exe
+D:\XepLichBongDa\src\XepLichBongDa\XepLichBongDa\obj\Release\XepLichBongDa.pdb
