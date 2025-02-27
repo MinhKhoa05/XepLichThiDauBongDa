@@ -3,100 +3,85 @@ CREATE DATABASE XepLichBongDa;
 GO
 USE XepLichBongDa;
 
+--- Bảng Giải đấu ---
 CREATE TABLE Tournaments (
-    TournamentID INT IDENTITY(1, 1) PRIMARY KEY,
-    TournamentName NVARCHAR(50) NOT NULL,
+    TournamentID VARCHAR(10) PRIMARY KEY,
+
+    TournamentName NVARCHAR(100) NOT NULL,
     StartDate DATE NOT NULL,
-    EndDate DATE NOT NULL
-);
-
-CREATE TABLE Rounds (
-    RoundID INT IDENTITY(1, 1) PRIMARY KEY,
-    RoundName NVARCHAR(50) NOT NULL,
-    TournamentID INT NOT NULL,
-    FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID)
-);
-
-CREATE TABLE Stadiums (
-    StadiumID INT IDENTITY(1, 1) PRIMARY KEY,
-    StadiumName NVARCHAR(50) NOT NULL,
-    Location NVARCHAR(150) NOT NULL,
-    Capacity INT NOT NULL
-);
-
-CREATE TABLE StadiumUsages (
-    UsageID INT IDENTITY(1, 1) NOT NULL,
-    StartTime DATETIME NOT NULL,
-    EndTime DATETIME NOT NULL,
-    isUsing BIT NOT NULL DEFAULT 0,
-    StadiumID INT NOT NULL,
-    PRIMARY KEY (UsageID, StadiumID),
-    FOREIGN KEY (StadiumID) REFERENCES Stadiums(StadiumID)
+    EndDate DATE NOT NULL,
+    Format VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE Referees (
-    RefereeID INT IDENTITY(1, 1) PRIMARY KEY,
-    RefereeName NVARCHAR(50) NOT NULL,
-    Email VARCHAR(50),
-    SDT VARCHAR(11),
-    RefereeImage VARCHAR(255)
+    RefereeID VARCHAR(10) PRIMARY KEY,
+    RefereeName NVARCHAR(100) NOT NULL,
+    Hometown NVARCHAR(50) NOT NULL,
+    Status INT NOT NULL
+);
+
+CREATE TABLE TournamentSettings (
+    TournamentID VARCHAR(10) PRIMARY KEY,
+    FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID),
+
+    MaxMatchPerDay TINYINT NOT NULL,
+    MinRestDay TINYINT NOT NULL
+);
+
+CREATE TABLE Stadiums (
+    StadiumID VARCHAR(10) PRIMARY KEY,
+    StadiumName NVARCHAR(50) NOT NULL,
+    Location NVARCHAR(255) NOT NULL,
+    isNeutral BIT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE Tournament_Refferee (
+    TournamentID VARCHAR(10) NOT NULL,
+    RefereeID VARCHAR(10) NOT NULL,
+    PRIMARY KEY (TournamentID, RefereeID),
+    FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID),
+    FOREIGN KEY (RefereeID) REFERENCES Referees(RefereeID)
+);
+
+CREATE TABLE NeutralStadium (
+    TournamentID VARCHAR(10) NOT NULL,
+    StadiumID VARCHAR(10) NOT NULL,
+    PRIMARY KEY (TournamentID, StadiumID),
+    FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID),
+    FOREIGN KEY (StadiumID) REFERENCES Stadiums(StadiumID)
+);
+
+CREATE TABLE TournamentSettings_AllowMatchesDay (
+    TournamentID VARCHAR(10) NOT NULL,
+
+    AllowMatchesDay TINYINT NOT NULL,   ---- 1 | 2 | 3 | 4 | 5 | 6 | 7
+    PRIMARY KEY (AllowMatchesDay, TournamentID),
+    FOREIGN KEY (TournamentID) REFERENCES TournamentSettings(TournamentID)
+);
+
+CREATE TABLE TournamentSettings_DefaultMatchtimes (
+    TournamentID VARCHAR(10) NOT NULL,
+
+    DefaultMatchtimes TIME NOT NULL,
+    PRIMARY KEY (DefaultMatchtimes, TournamentID),
+    FOREIGN KEY (TournamentID) REFERENCES TournamentSettings(TournamentID)
 );
 
 CREATE TABLE Teams (
-    TeamID INT IDENTITY(1, 1) PRIMARY KEY,
+    TeamID VARCHAR(10) PRIMARY KEY,
     TeamName NVARCHAR(50) NOT NULL,
     Logo VARCHAR(255),
-    Email VARCHAR(50),
-    SDT VARCHAR(11),
-    StadiumID INT,
+    Hometown NVARCHAR(100) NOT NULL,
+    HomeStadiumID VARCHAR(10),
     FOREIGN KEY (StadiumID) REFERENCES Stadiums(StadiumID)
 );
 
-CREATE TABLE RoundStandings (
-    GroupName VARCHAR(50) NOT NULL,
-    Played TINYINT NOT NULL DEFAULT 0,
-    Wins TINYINT NOT NULL DEFAULT 0,
-    Draws TINYINT NOT NULL DEFAULT 0,
-    Losses TINYINT NOT NULL DEFAULT 0,
-    Points INT NOT NULL DEFAULT 0,
-    RoundID INT NOT NULL,
-    TeamID INT NOT NULL,
-    PRIMARY KEY (RoundID, TeamID),
-    FOREIGN KEY (RoundID) REFERENCES Rounds(RoundID),
+CREATE TABLE Tournaments_Team (
+    TournamentID VARCHAR(10) NOT NULL,
+    TeamID VARCHAR(10) NOT NULL,
+    isOut BIT NOT NULL,
+
+    PRIMARY KEY (TournamentID, TeamID),
+    FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID),
     FOREIGN KEY (TeamID) REFERENCES Teams(TeamID)
-);
-
-CREATE TABLE Matchs (
-    MatchID INT IDENTITY(1, 1) PRIMARY KEY,
-    Legs BIT NOT NULL,          -- 0 cho luot di, 1 cho luot ve
-    isPlayed BIT NOT NULL,
-    StartTime DATETIME NOT NULL,
-    EndTime DATETIME NOT NULL,
-    
-    RoundID INT NOT NULL,
-    HomeTeamID INT NOT NULL,
-    AwayTeamID INT NOT NULL,
-    StadiumID INT NOT NULL,
-    FOREIGN KEY (RoundID) REFERENCES Rounds(RoundID),
-    FOREIGN KEY (TeamID) REFERENCES Teams(TeamID),
-    FOREIGN KEY (homeTeamTeamID) REFERENCES Teams(TeamID),
-    FOREIGN KEY (StadiumID) REFERENCES Stadiums(StadiumID)
-);
-
-CREATE TABLE MatchResult (
-    MatchID INT PRIMARY KEY,
-    HomeTeamScore TINYINT NOT NULL,
-    AwayTeamScore TINYINT NOT NULL,
-    RefereeID INT NOT NULL,                 -- Entered By
-    FOREIGN KEY (MatchID) REFERENCES Matchs(MatchID),
-    FOREIGN KEY (RefereeID) REFERENCES Referees(RefereeID)
-);
-
-CREATE TABLE Assignments (
-    Position VARCHAR(50) NOT NULL,
-    MatchID INT NOT NULL,
-    RefereeID INT NOT NULL,
-    PRIMARY KEY (MatchID, RefereeID),
-    FOREIGN KEY (MatchID) REFERENCES Matchs(MatchID),
-    FOREIGN KEY (RefereeID) REFERENCES Referees(RefereeID)
 );
