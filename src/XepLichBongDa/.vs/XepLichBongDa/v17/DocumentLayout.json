@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\XepLichBongDa\\src\\XepLichBongDa\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|d:\\xeplichbongda\\src\\xeplichbongda\\xeplichbongda\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|solutionrelative:xeplichbongda\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|D:\\XepLichBongDa\\src\\XepLichBongDa\\xeplichbongda\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|solutionrelative:xeplichbongda\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|D:\\XepLichBongDa\\src\\XepLichBongDa\\xeplichbongda\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|solutionrelative:xeplichbongda\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|D:\\XepLichBongDa\\src\\XepLichBongDa\\xeplichbongda\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|solutionrelative:xeplichbongda\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|D:\\XepLichBongDa\\src\\XepLichBongDa\\xeplichbongda\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|solutionrelative:xeplichbongda\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|d:\\xeplichbongda\\src\\xeplichbongda\\xeplichbongda\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|solutionrelative:xeplichbongda\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|D:\\XepLichBongDa\\src\\XepLichBongDa\\xeplichbongda\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|solutionrelative:xeplichbongda\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2BD06F9-A643-43B5-A81A-DB5D1C5F6B27}|XepLichBongDa\\XepLichBongDa.csproj|D:\\XepLichBongDa\\src\\XepLichBongDa\\xeplichbongda\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -53,15 +53,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "MainForm.cs",
               "DocumentMoniker": "D:\\XepLichBongDa\\src\\XepLichBongDa\\XepLichBongDa\\MainForm.cs",
               "RelativeDocumentMoniker": "XepLichBongDa\\MainForm.cs",
               "ToolTip": "D:\\XepLichBongDa\\src\\XepLichBongDa\\XepLichBongDa\\MainForm.cs",
               "RelativeToolTip": "XepLichBongDa\\MainForm.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAA9wB0AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAkwB0AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T15:12:30.016Z"
+              "WhenOpened": "2025-02-20T15:12:30.016Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -77,24 +78,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "D:\\XepLichBongDa\\src\\XepLichBongDa\\XepLichBongDa\\MainForm.cs",
               "RelativeDocumentMoniker": "XepLichBongDa\\MainForm.cs",
               "ToolTip": "D:\\XepLichBongDa\\src\\XepLichBongDa\\XepLichBongDa\\MainForm.cs [Design]",
               "RelativeToolTip": "XepLichBongDa\\MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T14:17:25.081Z"
+              "WhenOpened": "2025-02-20T14:17:25.081Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "D:\\XepLichBongDa\\src\\XepLichBongDa\\XepLichBongDa\\LoginForm.cs",
               "RelativeDocumentMoniker": "XepLichBongDa\\LoginForm.cs",
               "ToolTip": "D:\\XepLichBongDa\\src\\XepLichBongDa\\XepLichBongDa\\LoginForm.cs",
               "RelativeToolTip": "XepLichBongDa\\LoginForm.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAcwCMAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAAB0AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T13:55:54.57Z",
               "EditorCaption": ""
@@ -114,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "LoginForm.cs [Design]",
               "DocumentMoniker": "D:\\XepLichBongDa\\src\\XepLichBongDa\\XepLichBongDa\\LoginForm.cs",
               "RelativeDocumentMoniker": "XepLichBongDa\\LoginForm.cs",
