@@ -46,5 +46,10 @@ namespace BUS
         {
             return _dalSinhVien.SelectQueQuan();
         }
+
+        public DataTable GetSinhVienByQueQuan(string queQuan)
+        {
+            return _dalSinhVien.SelectSinhVienByQueQuan(queQuan);
+        }
     }
 }

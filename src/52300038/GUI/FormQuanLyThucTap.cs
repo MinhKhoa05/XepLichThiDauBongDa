@@ -281,6 +281,26 @@ namespace GUI
         {
             MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, icon);
         }
+
+        private void cboNoiThucTap_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvKetQuaThucTap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupbox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboQuequan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

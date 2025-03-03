@@ -123,5 +123,26 @@ namespace DAL
                 throw _db.HandleException(ex);
             }
         }
+
+        // Tìm kiếm sinh viên theo quê quán
+        public DataTable SelectSinhVienByQueQuan(string queQuan)
+        {
+            string query = "SELECT * FROM SinhVien WHERE QueQuan = @QueQuan";
+
+            IDataParameter[] parameters =
+            {
+                _db.CreateParameter("@QueQuan", queQuan)
+    };
+
+            try
+            {
+                return _db.SelectQuery(query, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw _db.HandleException(ex);
+            }
+        }
+
     }
 }
