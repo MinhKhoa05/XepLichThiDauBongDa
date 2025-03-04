@@ -20,3 +20,14 @@ D:\CNPM\52300038\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
 D:\CNPM\52300038\BUS\obj\Debug\BUS.csproj.Up2Date
 D:\CNPM\52300038\BUS\obj\Debug\BUS.dll
 D:\CNPM\52300038\BUS\obj\Debug\BUS.pdb
+D:\XepLichBongDa\src\52300038\BUS\bin\Debug\BUS.dll
+D:\XepLichBongDa\src\52300038\BUS\bin\Debug\BUS.pdb
+D:\XepLichBongDa\src\52300038\BUS\bin\Debug\DAL.dll
+D:\XepLichBongDa\src\52300038\BUS\bin\Debug\DTO.dll
+D:\XepLichBongDa\src\52300038\BUS\bin\Debug\DAL.pdb
+D:\XepLichBongDa\src\52300038\BUS\bin\Debug\DTO.pdb
+D:\XepLichBongDa\src\52300038\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+D:\XepLichBongDa\src\52300038\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\XepLichBongDa\src\52300038\BUS\obj\Debug\BUS.csproj.Up2Date
+D:\XepLichBongDa\src\52300038\BUS\obj\Debug\BUS.dll
+D:\XepLichBongDa\src\52300038\BUS\obj\Debug\BUS.pdb

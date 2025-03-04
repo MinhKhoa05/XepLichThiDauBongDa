@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\XepLichBongDa\\src\\52300038\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|d:\\xeplichbongda\\src\\52300038\\gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|solutionrelative:gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|d:\\xeplichbongda\\src\\52300038\\dal\\sqldatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|solutionrelative:dal\\sqldatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|d:\\xeplichbongda\\src\\52300038\\dal\\databasefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|solutionrelative:dal\\databasefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|d:\\xeplichbongda\\src\\52300038\\gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|solutionrelative:gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|d:\\xeplichbongda\\src\\52300038\\dal\\dal_detai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,17 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\GUI\\Program.cs",
               "RelativeDocumentMoniker": "GUI\\Program.cs",
               "ToolTip": "D:\\XepLichBongDa\\src\\52300038\\GUI\\Program.cs",
               "RelativeToolTip": "GUI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-04T09:01:29.56Z",
               "EditorCaption": ""
@@ -60,20 +60,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "SqlDatabase.cs",
               "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\DAL\\SqlDatabase.cs",
               "RelativeDocumentMoniker": "DAL\\SqlDatabase.cs",
               "ToolTip": "D:\\XepLichBongDa\\src\\52300038\\DAL\\SqlDatabase.cs",
               "RelativeToolTip": "DAL\\SqlDatabase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAACkAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-04T07:15:39.966Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "DatabaseFactory.cs",
               "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\DAL\\DatabaseFactory.cs",
               "RelativeDocumentMoniker": "DAL\\DatabaseFactory.cs",
@@ -86,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Connection.cs",
               "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\DAL\\Connection.cs",
               "RelativeDocumentMoniker": "DAL\\Connection.cs",

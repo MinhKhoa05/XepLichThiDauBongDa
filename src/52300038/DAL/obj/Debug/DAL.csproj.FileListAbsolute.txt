@@ -16,12 +16,12 @@ D:\CNPM\52300038\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\CNPM\52300038\DAL\obj\Debug\DAL.csproj.Up2Date
 D:\CNPM\52300038\DAL\obj\Debug\DAL.dll
 D:\CNPM\52300038\DAL\obj\Debug\DAL.pdb
-B:\student\Đồ án CNPM\XepLichThiDauBongDa\src\52300038\DAL\bin\Debug\DAL.dll
-B:\student\Đồ án CNPM\XepLichThiDauBongDa\src\52300038\DAL\bin\Debug\DAL.pdb
-B:\student\Đồ án CNPM\XepLichThiDauBongDa\src\52300038\DAL\bin\Debug\DTO.dll
-B:\student\Đồ án CNPM\XepLichThiDauBongDa\src\52300038\DAL\bin\Debug\DTO.pdb
-B:\student\Đồ án CNPM\XepLichThiDauBongDa\src\52300038\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
-B:\student\Đồ án CNPM\XepLichThiDauBongDa\src\52300038\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
-B:\student\Đồ án CNPM\XepLichThiDauBongDa\src\52300038\DAL\obj\Debug\DAL.csproj.Up2Date
-B:\student\Đồ án CNPM\XepLichThiDauBongDa\src\52300038\DAL\obj\Debug\DAL.dll
-B:\student\Đồ án CNPM\XepLichThiDauBongDa\src\52300038\DAL\obj\Debug\DAL.pdb
+D:\XepLichBongDa\src\52300038\DAL\bin\Debug\DAL.dll
+D:\XepLichBongDa\src\52300038\DAL\bin\Debug\DAL.pdb
+D:\XepLichBongDa\src\52300038\DAL\bin\Debug\DTO.dll
+D:\XepLichBongDa\src\52300038\DAL\bin\Debug\DTO.pdb
+D:\XepLichBongDa\src\52300038\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\XepLichBongDa\src\52300038\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\XepLichBongDa\src\52300038\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\XepLichBongDa\src\52300038\DAL\obj\Debug\DAL.dll
+D:\XepLichBongDa\src\52300038\DAL\obj\Debug\DAL.pdb

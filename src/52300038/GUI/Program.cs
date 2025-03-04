@@ -13,10 +13,14 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormQuanLySV());
-            //Application.Run(new FormQuanLyDeTai());
-            //Application.Run(new FormQuanLyThucTap());
-            Application.Run(new MainForm());
+            try
+            {
+                Application.Run(new FormQuanLyDeTai());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
