@@ -8,8 +8,8 @@ CREATE TABLE League (
     LeagueName NVARCHAR(255) NOT NULL,
     StartDate DATE NOT NULL,
     EndDate DATE NOT NULL,
-    MaxMatchPerDay TINYINT NOT NULL,
-    MinRestDay TINYINT NOT NULL
+    MaxMatchPerDay TINYINT NOT NULL CHECK (MaxMatchPerDay >= 0),
+    MinRestDay TINYINT NOT NULL DEFAULT 2 CHECK(MinRestDay >= 0)
 );
 
 CREATE TABLE TimeSlot (
@@ -21,15 +21,15 @@ CREATE TABLE Stadium (
     StadiumID VARCHAR(8) PRIMARY KEY,
     StadiumName NVARCHAR(255) NOT NULL,
     Address NVARCHAR(500) NOT NULL,
-    IsNeutral BIT NOT NULL,
-    Status TINYINT NOT NULL
+    IsNeutral BIT NOT NULL DEFAULT 0,       --- 1: Là sân trung lập, 0: Là sân nhà 
+    Status TINYINT NOT NULL                 --- 1: Đang dùng, 2: Không dùng nữa, 3: Bảo trì      
 );
 
 CREATE TABLE UserAccount (
     UserID INT IDENTITY(1, 1) PRIMARY KEY,
     Username VARCHAR(10) NOT NULL,
     PasswordHash NVARCHAR(255) NOT NULL,
-    UserRole NVARCHAR(50) NOT NULL,
+    UserRole TINYINT NOT NULL,              --- 1: Admin, 2: Team, 3: Referee
     Status TINYINT NOT NULL,
     Email NVARCHAR(255),
     PhoneNumber NVARCHAR(20)
