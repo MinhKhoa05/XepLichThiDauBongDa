@@ -1,33 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\XepLichBongDa\\src\\52300038\\",
+  "WorkspaceRootPath": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B399B33-E53E-4499-A9F8-4A065DEE57B3}|BUS\\BUS.csproj|D:\\XepLichBongDa\\src\\52300038\\bus\\bus_sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|b:\\student\\\u0111\u1ED3 \u00E1n cnpm\\xeplichthidaubongda\\src\\52300038\\gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|solutionrelative:gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B399B33-E53E-4499-A9F8-4A065DEE57B3}|BUS\\BUS.csproj|b:\\student\\\u0111\u1ED3 \u00E1n cnpm\\xeplichthidaubongda\\src\\52300038\\bus\\bus_sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B399B33-E53E-4499-A9F8-4A065DEE57B3}|BUS\\BUS.csproj|solutionrelative:bus\\bus_sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|d:\\xeplichbongda\\src\\52300038\\gui\\find-student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\gui\\find-student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|solutionrelative:gui\\find-student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|D:\\XepLichBongDa\\src\\52300038\\gui\\find-student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\gui\\find-student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|solutionrelative:gui\\find-student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|D:\\XepLichBongDa\\src\\52300038\\dal\\dal_sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\dal\\dal_sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|solutionrelative:dal\\dal_sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|D:\\XepLichBongDa\\src\\52300038\\dal\\dal_sinhviendetai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\dal\\dal_sinhviendetai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BEC3467-5A89-4B75-ACC4-18B5BD417307}|DAL\\DAL.csproj|solutionrelative:dal\\dal_sinhviendetai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|D:\\XepLichBongDa\\src\\52300038\\gui\\formquanlythuctap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\gui\\formquanlythuctap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|solutionrelative:gui\\formquanlythuctap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|D:\\XepLichBongDa\\src\\52300038\\gui\\formquanlythuctap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\gui\\formquanlythuctap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9875BDEE-C297-47E0-B4EA-C75C613FCF9B}|GUI\\GUI.csproj|solutionrelative:gui\\formquanlythuctap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,15 +42,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\GUI\\MainForm.cs",
+              "RelativeDocumentMoniker": "GUI\\MainForm.cs",
+              "ToolTip": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\GUI\\MainForm.cs [Design]",
+              "RelativeToolTip": "GUI\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T14:39:58.826Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Find-student.cs",
-              "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\GUI\\Find-student.cs",
+              "DocumentMoniker": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\GUI\\Find-student.cs",
               "RelativeDocumentMoniker": "GUI\\Find-student.cs",
-              "ToolTip": "D:\\XepLichBongDa\\src\\52300038\\GUI\\Find-student.cs",
+              "ToolTip": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\GUI\\Find-student.cs",
               "RelativeToolTip": "GUI\\Find-student.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -55,11 +71,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BUS_SinhVien.cs",
-              "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\BUS\\BUS_SinhVien.cs",
+              "DocumentMoniker": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\BUS\\BUS_SinhVien.cs",
               "RelativeDocumentMoniker": "BUS\\BUS_SinhVien.cs",
-              "ToolTip": "D:\\XepLichBongDa\\src\\52300038\\BUS\\BUS_SinhVien.cs",
+              "ToolTip": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\BUS\\BUS_SinhVien.cs",
               "RelativeToolTip": "BUS\\BUS_SinhVien.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAowCsAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -68,11 +84,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DAL_SinhVien.cs",
-              "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\DAL\\DAL_SinhVien.cs",
+              "DocumentMoniker": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\DAL\\DAL_SinhVien.cs",
               "RelativeDocumentMoniker": "DAL\\DAL_SinhVien.cs",
-              "ToolTip": "D:\\XepLichBongDa\\src\\52300038\\DAL\\DAL_SinhVien.cs",
+              "ToolTip": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\DAL\\DAL_SinhVien.cs",
               "RelativeToolTip": "DAL\\DAL_SinhVien.cs",
               "ViewState": "AgIAAHYAAAAAAAAAAAAmwIwAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -80,21 +96,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Find-student.cs [Design]",
-              "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\GUI\\Find-student.cs",
+              "DocumentMoniker": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\GUI\\Find-student.cs",
               "RelativeDocumentMoniker": "GUI\\Find-student.cs",
               "ToolTip": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\GUI\\Find-student.cs [Design]",
+              "RelativeToolTip": "GUI\\Find-student.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T06:49:21.797Z"
+              "WhenOpened": "2025-03-03T06:49:21.797Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "DAL_SinhVienDeTai.cs",
-              "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\DAL\\DAL_SinhVienDeTai.cs",
+              "DocumentMoniker": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\DAL\\DAL_SinhVienDeTai.cs",
               "RelativeDocumentMoniker": "DAL\\DAL_SinhVienDeTai.cs",
-              "ToolTip": "D:\\XepLichBongDa\\src\\52300038\\DAL\\DAL_SinhVienDeTai.cs",
+              "ToolTip": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\DAL\\DAL_SinhVienDeTai.cs",
               "RelativeToolTip": "DAL\\DAL_SinhVienDeTai.cs",
               "ViewState": "AgIAAFEAAAAAAAAAAAAcwGcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -102,11 +120,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "FormQuanLyThucTap.cs",
-              "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\GUI\\FormQuanLyThucTap.cs",
+              "DocumentMoniker": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\GUI\\FormQuanLyThucTap.cs",
               "RelativeDocumentMoniker": "GUI\\FormQuanLyThucTap.cs",
-              "ToolTip": "D:\\XepLichBongDa\\src\\52300038\\GUI\\FormQuanLyThucTap.cs",
+              "ToolTip": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\GUI\\FormQuanLyThucTap.cs",
               "RelativeToolTip": "GUI\\FormQuanLyThucTap.cs",
               "ViewState": "AgIAAJcAAAAAAAAAAAAqwBwAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -114,11 +132,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FormQuanLyThucTap.cs [Design]",
-              "DocumentMoniker": "D:\\XepLichBongDa\\src\\52300038\\GUI\\FormQuanLyThucTap.cs",
+              "DocumentMoniker": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\GUI\\FormQuanLyThucTap.cs",
               "RelativeDocumentMoniker": "GUI\\FormQuanLyThucTap.cs",
               "ToolTip": "B:\\student\\\u0110\u1ED3 \u00E1n CNPM\\XepLichThiDauBongDa\\src\\52300038\\GUI\\FormQuanLyThucTap.cs [Design]",
+              "RelativeToolTip": "GUI\\FormQuanLyThucTap.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-02T15:27:44.286Z"
             }
