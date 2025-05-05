@@ -1,0 +1,19 @@
+# Ignore build output folders
+[Bb]in/
+[Oo]bj/
+
+**/bin/
+**/obj/
+
+# Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+*.cache
+*.db
+*.vsidx
+*.backup.json
+
+# Ignore debug/release folders
+[Dd]ebug/
+[Rr]elease/
