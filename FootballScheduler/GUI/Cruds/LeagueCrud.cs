@@ -73,6 +73,14 @@ namespace GUI.Cruds
         {
             _dataGridView.DataSource = null;
             _dataGridView.DataSource = _leagueBUS.GetAll();
+
+            // Thiết lập các header cho các cột
+            _dataGridView.Columns["LeagueID"].HeaderText = "Mã Giải Đấu";
+            _dataGridView.Columns["LeagueName"].HeaderText = "Tên Giải Đấu";
+            _dataGridView.Columns["StartDate"].HeaderText = "Ngày Bắt Đầu";
+            _dataGridView.Columns["EndDate"].HeaderText = "Ngày Kết Thúc";
+            _dataGridView.Columns["MaxTeams"].HeaderText = "Số Đội Tối Đa";
+
         }
 
         // Xuất PDF danh sách

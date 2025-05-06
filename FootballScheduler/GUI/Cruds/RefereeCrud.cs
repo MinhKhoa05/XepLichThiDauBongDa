@@ -79,6 +79,13 @@ namespace GUI.Cruds
         {
             _dataGridView.DataSource = null;
             _dataGridView.DataSource = _refereeBUS.GetAll();
+
+            // Thiết lập các header cho các cột
+            _dataGridView.Columns["RefereeID"].HeaderText = "ID";
+            _dataGridView.Columns["RefereeName"].HeaderText = "Tên Trọng Tài";
+            _dataGridView.Columns["BirthDate"].HeaderText = "Ngày Sinh";
+            _dataGridView.Columns["PhoneNumber"].HeaderText = "Số Điện Thoại";
+            _dataGridView.Columns["Email"].HeaderText = "Email";
         }
 
         // Xuất danh sách trọng tài ra PDF

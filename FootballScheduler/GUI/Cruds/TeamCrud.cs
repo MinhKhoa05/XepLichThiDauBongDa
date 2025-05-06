@@ -80,6 +80,16 @@ namespace GUI.Curds
         {
             _dataGridView.DataSource = null;
             _dataGridView.DataSource = _teamBUS.GetAll();
+
+            // Thiết lập các header cho các cột
+            _dataGridView.Columns["TeamID"].HeaderText = "ID";
+            _dataGridView.Columns["TeamName"].HeaderText = "Tên Đội Bóng";
+            _dataGridView.Columns["CoachName"].HeaderText = "Đại diện";
+            _dataGridView.Columns["StadiumName"].HeaderText = "Sân Nhà";
+            _dataGridView.Columns["Phone"].HeaderText = "Số Điện Thoại";
+            _dataGridView.Columns["Email"].HeaderText = "Email";
+
+            _dataGridView.Columns["StadiumID"].Visible = false;
         }
 
         // Xuất danh sách đội bóng ra PDF
@@ -89,11 +99,12 @@ namespace GUI.Curds
             PdfExportHelper.ExportToPdf(
                 teams,
                 "DANH SÁCH ĐỘI BÓNG",
-                new List<string> { "Mã Đội Bóng", "Tên Đội Bóng", "Đại diện", "Số Điện Thoại", "Email" },
+                new List<string> { "Mã Đội Bóng", "Tên Đội Bóng", "Sân nhà", "Đại diện", "Số Điện Thoại", "Email" },
                 new List<Func<TeamDTO, string>>
                 {
                     team => team.TeamID,
                     team => team.TeamName,
+                    team => team.StadiumName,
                     team => team.CoachName,
                     team => team.Phone,
                     team => team.Email
