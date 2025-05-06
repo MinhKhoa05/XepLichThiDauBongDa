@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using BUS.BUSs;
 using DTO;
@@ -12,7 +11,6 @@ namespace GUI.UserControls
     public partial class UcSchedule : UserControl
     {
         private string leagueId;
-        private bool isRefereeMode = false;
         private readonly MatchBUS _matchBUS = new MatchBUS();
 
         public UcSchedule()
@@ -25,7 +23,6 @@ namespace GUI.UserControls
         {
             if (FrmMain.Account.Role.Equals("Referee"))
             {
-                isRefereeMode = true;
                 var referees = new List<RefereeDTO>
                 {
                     new RefereeBUS().GetById(FrmMain.Account.AccountID),
@@ -40,6 +37,22 @@ namespace GUI.UserControls
                 cbLeague.DisplayMember = "RefereeName";
                 cbLeague.ValueMember = "RefereeID";
 
+                btnUpdateResult.Enabled = true;
+            }
+            else if (FrmMain.Account.Role.Equals("Team"))
+            {
+                var teams = new List<TeamDTO>
+                {
+                    new TeamBUS().GetById(FrmMain.Account.AccountID),
+                    new TeamDTO
+                    {
+                        TeamID = "ALL",
+                        TeamName = "== Tất cả =="
+                    }
+                };
+                cbLeague.DataSource = teams;
+                cbLeague.DisplayMember = "TeamName";
+                cbLeague.ValueMember = "TeamID";
                 btnUpdateResult.Enabled = true;
             }
             else
@@ -81,12 +94,19 @@ namespace GUI.UserControls
 
             List<MatchView> matches;
 
-            if (isRefereeMode)
+            if (FrmMain.Account.Role.Equals("Referee"))
             {
                 string refereeId = cbLeague.SelectedValue?.ToString();
                 matches = refereeId == "ALL"
                     ? _matchBUS.GetAll()
                     : _matchBUS.Filter(refereeId); // Filter theo RefereeID
+            }
+            else if (FrmMain.Account.Role.Equals("Team"))
+            {
+                string teamId = cbLeague.SelectedValue?.ToString();
+                matches = teamId == "ALL"
+                    ? _matchBUS.GetAll()
+                    : _matchBUS.Filter(teamId); // Filter theo RefereeID
             }
             else
             {
@@ -96,25 +116,20 @@ namespace GUI.UserControls
             }
 
             dgvMatch.DataSource = matches;
-            dgvMatch.Columns["LeagueName"].Visible = !isRefereeMode && leagueId == "ALL";
             dgvMatch.BindingContext[dgvMatch.DataSource].SuspendBinding();
         }
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            if (leagueId == "ALL" && !isRefereeMode)
+            if (leagueId == "ALL")
             {
                 MessageBox.Show("Vui lòng chọn giải đấu để xuất dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var matches = isRefereeMode
-                ? _matchBUS.Filter(leagueId)
-                : _matchBUS.GetAll(leagueId);
+            var matches = _matchBUS.GetAll(leagueId);
 
-            string title = isRefereeMode
-                ? "LỊCH THI ĐẤU CỦA TRỌNG TÀI"
-                : $"LỊCH THI ĐẤU GIẢI {new LeagueBUS().GetById(leagueId).LeagueName}";
+            string title = $"LỊCH THI ĐẤU GIẢI {new LeagueBUS().GetById(leagueId).LeagueName}";
 
             PdfExportHelper.ExportToPdf(
                 matches,
@@ -233,10 +248,12 @@ namespace GUI.UserControls
                 btnInsert.Enabled = false;
                 btnExport.Enabled = false;
             }
-
-            if (FrmMain.Account.Role.Equals("Referee"))
+            else if (FrmMain.Account.Role.Equals("Referee"))
             {
                 btnUpdateResult.Enabled = true;
+                label2.Visible = false;
+            } else
+            {
                 label2.Visible = false;
             }
         }
