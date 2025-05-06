@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using BUS.Services;
+using BUS.BUSs;
 using DTO;
 using GUI.Forms;
 using GUI.Helpers;
@@ -70,13 +70,14 @@ namespace GUI.Cruds
             PdfExportHelper.ExportToPdf(
                 leagues,
                 "DANH SÁCH GIẢI ĐẤU",
-                new List<string> { "Mã Giải Đấu", "Tên Giải Đấu", "Ngày Bắt Đầu", "Ngày Kết Thúc" },
+                new List<string> { "Mã Giải Đấu", "Tên Giải Đấu", "Ngày Bắt Đầu", "Ngày Kết Thúc", "Số đội tối đa" },
                 new List<Func<LeagueDTO, string>>
                 {
                     league => league.LeagueID,
                     league => league.LeagueName,
                     league => league.StartDate.ToString("dd/MM/yyyy"),
-                    league => league.EndDate.ToString("dd/MM/yyyy")
+                    league => league.EndDate.ToString("dd/MM/yyyy"),
+                    league => league.MaxTeams.ToString()
                 });
         }
     }

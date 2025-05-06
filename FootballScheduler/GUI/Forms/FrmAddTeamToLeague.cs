@@ -2,8 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using BUS.Services;
-using BUS.Others;
+using BUS.BUSs;
 using GUI.Helpers;
 
 namespace GUI.UserControls

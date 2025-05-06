@@ -1,8 +1,8 @@
 ﻿using System;
-using DAL.Others;
 using DTO;
+using DAL;
 
-namespace BUS.Others
+namespace BUS.BUSs
 {
     public class AccountBUS
     {

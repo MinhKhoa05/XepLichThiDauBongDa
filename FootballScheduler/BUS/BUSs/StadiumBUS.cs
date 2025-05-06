@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using BUS.Helpers;
-using DAL.Repositories;
+using DAL;
 using DTO;
 
-namespace BUS.Services
+namespace BUS.BUSs
 {
     public class StadiumBUS
     {
-        private readonly StadiumDal _stadiumDal;
+        private readonly StadiumDAL _stadiumDal;
 
         public StadiumBUS()
         {
-            _stadiumDal = new StadiumDal(); // Tạo đối tượng DAL để truy vấn cơ sở dữ liệu
+            _stadiumDal = new StadiumDAL(); // Tạo đối tượng DAL để truy vấn cơ sở dữ liệu
         }
 
         // Lấy tất cả sân vận động

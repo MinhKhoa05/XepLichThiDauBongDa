@@ -52,7 +52,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(388, 434);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(185, 50);
             this.btnSave.TabIndex = 14;
@@ -70,7 +70,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(108, 434);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(185, 50);
             this.btnCancel.TabIndex = 16;
@@ -181,6 +181,7 @@
             this.txtPass_old.SelectedText = "";
             this.txtPass_old.Size = new System.Drawing.Size(315, 38);
             this.txtPass_old.TabIndex = 21;
+            this.txtPass_old.UseSystemPasswordChar = true;
             // 
             // txtPass_new
             // 
@@ -203,6 +204,7 @@
             this.txtPass_new.SelectedText = "";
             this.txtPass_new.Size = new System.Drawing.Size(315, 38);
             this.txtPass_new.TabIndex = 22;
+            this.txtPass_new.UseSystemPasswordChar = true;
             // 
             // txtConfirmPass
             // 
@@ -225,6 +227,7 @@
             this.txtConfirmPass.SelectedText = "";
             this.txtConfirmPass.Size = new System.Drawing.Size(315, 38);
             this.txtConfirmPass.TabIndex = 23;
+            this.txtConfirmPass.UseSystemPasswordChar = true;
             // 
             // FrmChangePass
             // 
@@ -243,7 +246,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUsername);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmChangePass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmChangePass";

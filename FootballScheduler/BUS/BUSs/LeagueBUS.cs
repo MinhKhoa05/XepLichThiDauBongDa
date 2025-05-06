@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BUS.Helpers;
-using DAL.Repositories;
+using DAL;
 using DTO;
 
-namespace BUS.Services
+namespace BUS.BUSs
 {
     public class LeagueBUS
     {
-        private readonly LeagueDal _leagueDal;
+        private readonly LeagueDAL _leagueDal;
 
         public LeagueBUS()
         {
-            _leagueDal = new LeagueDal();
+            _leagueDal = new LeagueDAL();
         }
 
         public List<LeagueDTO> GetAll()

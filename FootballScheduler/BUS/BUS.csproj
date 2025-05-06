@@ -62,17 +62,15 @@
     <Compile Include="Helpers\IDGenerator.cs" />
     <Compile Include="Managers\MatchManager.cs" />
     <Compile Include="Managers\DbConfigManager.cs" />
-    <Compile Include="Others\LeagueTeamBUS.cs" />
-    <Compile Include="Others\StandingsBUS.cs" />
+    <Compile Include="BUSs\LeagueTeamBUS.cs" />
+    <Compile Include="BUSs\StandingsBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Others\AccountBUS.cs" />
-    <Compile Include="Services\LeagueBUS.cs" />
-    <Compile Include="Services\MatchBUS.cs" />
-    <Compile Include="Services\RefereeBUS.cs" />
-    <Compile Include="Services\StadiumBUS.cs" />
-    <Compile Include="Services\TeamBUS.cs" />
-    <Compile Include="Strategies\ISchedulerStrategy.cs" />
-    <Compile Include="Strategies\RoundRobinScheduler.cs" />
+    <Compile Include="BUSs\AccountBUS.cs" />
+    <Compile Include="BUSs\LeagueBUS.cs" />
+    <Compile Include="BUSs\MatchBUS.cs" />
+    <Compile Include="BUSs\RefereeBUS.cs" />
+    <Compile Include="BUSs\StadiumBUS.cs" />
+    <Compile Include="BUSs\TeamBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

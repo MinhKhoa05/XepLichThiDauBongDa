@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using DAL.Others;
+using DAL;
 using DTO;
 
-namespace BUS.Others
+namespace BUS.BUSs
 {
     public class StandingsBUS
     {
@@ -13,9 +13,14 @@ namespace BUS.Others
             return _standingsDAL.GetAll(leagueId);
         }
 
-        public void Insert(string league, string teamIds)
+        public void Delete(string leagueId)
         {
-            _standingsDAL.Insert(league, teamIds);
+            _standingsDAL.Delete(leagueId);
+        }
+
+        public void Insert(string league, string teamId)
+        {
+            _standingsDAL.Insert(league, teamId);
         }
     }
 }

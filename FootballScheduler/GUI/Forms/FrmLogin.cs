@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using BUS.Others;
+using BUS.BUSs;
 using DTO;
 using GUI.Helpers;
 
@@ -31,7 +31,20 @@ namespace GUI.Forms
             try
             {
                 AccountDTO account = (new AccountBUS()).Login(username, password);
-            
+
+                switch (account.Role)
+                {
+                    case "Admin":
+                        username = "Quản trị viên";
+                        break;
+                    case "Referee":
+                        username = (new RefereeBUS()).GetById(account.AccountID).RefereeName;
+                        break;
+                    case "Team":
+                        username = (new TeamBUS()).GetById(account.AccountID).TeamName;
+                        break;
+                }
+
                 MyMessageBox.ShowInformation($"Đăng nhập thành công\r\nXin chào {username}");
 
                 Hide();

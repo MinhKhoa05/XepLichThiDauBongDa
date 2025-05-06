@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
-using DAL.Helpers;
 using DTO;
 
-namespace DAL.Repositories
+namespace DAL
 {
-    public class TeamDal
+    public class TeamDAL
     {
         private const string Table = "Team";
 
         public List<TeamDTO> GetAll()
         {
-            string sql = $"SELECT * FROM {Table}";
+            string sql = $"SELECT *, s.StadiumName FROM {Table} t JOIN Stadium s ON s.StadiumID = t.HomeStadiumID";
             return DbConnector.QueryList<TeamDTO>(sql);
         }
 

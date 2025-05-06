@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using BUS.Services;
+using BUS.BUSs;
 using DTO;
 using GUI.Cruds;
 using GUI.Forms;

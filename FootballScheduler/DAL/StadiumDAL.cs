@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using DAL.Helpers;
 using DTO;
 
-namespace DAL.Repositories
+namespace DAL
 {
-    public class StadiumDal
+    public class StadiumDAL
     {
         private const string Table = "Stadium";
 

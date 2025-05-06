@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
 
-namespace DAL.Helpers
+namespace DAL
 {
     /// <summary>
     /// Hỗ trợ kết nối và truy vấn SQL Server bằng Dapper.

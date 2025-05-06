@@ -1,14 +1,10 @@
 ﻿using System.Collections.Generic;
 using DTO;
-using DAL.Helpers;
 
-namespace DAL.Others
+namespace DAL
 {
     public class StandingsDAL
     {
-        /// <summary>
-        /// Lấy tất cả bảng xếp hạng của giải đấu theo ID giải đấu và sắp xếp theo điểm.
-        /// </summary>
         public List<StandingsDTO> GetAll(string leagueId)
         {
             const string query = @"
@@ -18,7 +14,7 @@ namespace DAL.Others
                 FROM
                     Standings s
                     INNER JOIN Team t ON t.TeamID = s.TeamID
-                WHERE 
+                WHERE
                     s.LeagueID = @LeagueID
                 ORDER BY 
                     s.Points DESC,
@@ -26,6 +22,12 @@ namespace DAL.Others
                     s.GoalsScored DESC;";
 
             return DbConnector.QueryList<StandingsDTO>(query, new { LeagueID = leagueId });
+        }
+
+        public void Delete(string leagueId)
+        {
+            const string query = "DELETE FROM Standings WHERE LeagueID = @LeagueID";
+            DbConnector.Execute(query, new { LeagueID = leagueId });
         }
 
         public void Insert(string league, string teamIds)

@@ -7,6 +7,7 @@
         public string LogoURL { get; set; }
         public string CoachName { get; set; }
         public string HomeStadiumID { get; set; }
+        public string StadiumName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
 

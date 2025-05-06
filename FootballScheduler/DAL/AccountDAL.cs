@@ -1,7 +1,6 @@
-﻿using DAL.Helpers;
-using DTO;
+﻿using DTO;
 
-namespace DAL.Others
+namespace DAL
 {
     public class AccountDAL
     {

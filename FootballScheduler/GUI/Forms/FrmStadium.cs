@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using BUS.Services;
+using BUS.BUSs;
 using DTO;
 using GUI.Helpers;
 

@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using BUS.Helpers;
-using DAL.Repositories;
+using DAL;
 using DTO;
 
-namespace BUS.Services
+namespace BUS.BUSs
 {
     public class RefereeBUS
     {
-        private readonly RefereeDal _refereeDal;
+        private readonly RefereeDAL _refereeDal;
 
         public RefereeBUS()
         {
-            _refereeDal = new RefereeDal(); // Tạo đối tượng DAL để truy vấn cơ sở dữ liệu
+            _refereeDal = new RefereeDAL(); // Tạo đối tượng DAL để truy vấn cơ sở dữ liệu
         }
 
         // Lấy tất cả trọng tài chưa bị xóa

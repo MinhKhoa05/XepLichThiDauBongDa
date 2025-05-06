@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using BUS.BUSs;
 using DTO;
-using BUS.Others;
 
 namespace GUI.Forms
 {
@@ -17,9 +17,22 @@ namespace GUI.Forms
 
         private void FormInfo_Load(object sender, EventArgs e)
         {
-            txtUserName.Text = _account.UserName;
+            txtAccountID.Text = _account.AccountID;
+
+            switch (_account.Role)
+            {
+                case "Admin":
+                    txtUserName.Text = _account.UserName;
+                    break;
+                case "Referee":
+                    txtUserName.Text = (new RefereeBUS()).GetById(_account.AccountID).RefereeName;
+                    break;
+                case "Team":
+                    txtUserName.Text = (new TeamBUS()).GetById(_account.AccountID).TeamName;
+                    break;
+            }
+
             txtRole.Text = _account.Role;
-            txtPass.Text = _account.PasswordHash;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

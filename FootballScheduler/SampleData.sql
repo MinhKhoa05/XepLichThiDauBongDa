@@ -2,8 +2,8 @@ USE FootballScheduler;
 
 INSERT INTO League (LeagueID, LeagueName, LogoURL, MaxTeams, StartDate, EndDate, Status)
 VALUES
-('L00001', N'Premier League', NULL, 20, '2025-01-01', '2025-06-01', 1),
-('L00002', N'V-League', NULL, 14, '2025-03-01', '2025-07-30', 0);
+('L00001', N'Premier League', NULL, 20, '2025-05-10', '2026-06-01', 1),
+('L00002', N'V-League', NULL, 14, '2025-06-01', '2025-12-30', 0);
 
 INSERT INTO Stadium (StadiumID, StadiumName, Address)
 VALUES
@@ -64,5 +64,40 @@ VALUES
 ('R00009', N'Trương Thanh Sơn', '1982-04-28', '0912233445', 'truongthanhson@referee.com'),
 ('R00010', N'Phan Đức Hòa', '1981-12-02', '0905678901', 'phanduchoa@referee.com');
 
-INSERT INTO Account (AccountID, UserName, PasswordHash)
-VALUES ('ad0001', 'admin', '123456')
+INSERT INTO Account (AccountID, Username, PasswordHash)
+VALUES ('A00001', 'A00001', '123456')
+
+-- Thêm 10 trọng tài vào bảng Account với mật khẩu mặc định '123456'
+INSERT INTO Account (AccountID, UserName, Role, PasswordHash)
+VALUES
+('R00002', 'R00002', 'Referee', '123456'),
+('R00003', 'R00003', 'Referee', '123456'),
+('R00004', 'R00004', 'Referee', '123456'),
+('R00005', 'R00005', 'Referee', '123456'),
+('R00006', 'R00006', 'Referee', '123456'),
+('R00007', 'R00007', 'Referee', '123456'),
+('R00008', 'R00008', 'Referee', '123456'),
+('R00009', 'R00009', 'Referee', '123456'),
+('R00010', 'R00010', 'Referee', '123456');
+
+INSERT INTO Account (AccountID, UserName, Role, PasswordHash)
+VALUES
+('T00002', 'T00002', 'Team', '123456'),
+('T00003', 'T00003', 'Team', '123456'),
+('T00004', 'T00004', 'Team', '123456'),
+('T00005', 'T00005', 'Team', '123456'),
+('T00006', 'T00006', 'Team', '123456'),
+('T00007', 'T00007', 'Team', '123456'),
+('T00008', 'T00008', 'Team', '123456'),
+('T00009', 'T00009', 'Team', '123456'),
+('T00010', 'T00010', 'Team', '123456'),
+('T00011', 'T00011', 'Team', '123456'),
+('T00012', 'T00012', 'Team', '123456'),
+('T00013', 'T00013', 'Team', '123456'),
+('T00014', 'T00014', 'Team', '123456'),
+('T00015', 'T00015', 'Team', '123456'),
+('T00016', 'T00016', 'Team', '123456'),
+('T00017', 'T00017', 'Team', '123456'),
+('T00018', 'T00018', 'Team', '123456'),
+('T00019', 'T00019', 'Team', '123456'),
+('T00020', 'T00020', 'Team', '123456');

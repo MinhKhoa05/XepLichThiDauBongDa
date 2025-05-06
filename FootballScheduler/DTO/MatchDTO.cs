@@ -4,13 +4,13 @@ namespace DTO
 {
     public class MatchDTO
     {
-        public int MatchID { get; set; }
+        public string MatchID { get; set; }
 
         public string LeagueID { get; set; }
         public byte RoundNumber { get; set; }
         public DateTime KickoffDateTime { get; set; }
-        public byte Status { get; set; }
-
+        public bool Complete { get; set; }
+        
         public string HomeTeamID { get; set; }
         public string AwayTeamID { get; set; }
         public byte HomeGoals { get; set; }

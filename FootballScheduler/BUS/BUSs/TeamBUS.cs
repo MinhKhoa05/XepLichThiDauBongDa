@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using BUS.Helpers;
-using DAL.Repositories;
+using DAL;
 using DTO;
 
-namespace BUS.Services
+namespace BUS.BUSs
 {
     public class TeamBUS
     {
-        private readonly TeamDal _teamDal;
+        private readonly TeamDAL _teamDal;
 
         public TeamBUS()
         {
-            _teamDal = new TeamDal(); // Tạo đối tượng DAL để thực hiện các thao tác với cơ sở dữ liệu
+            _teamDal = new TeamDAL(); // Tạo đối tượng DAL để thực hiện các thao tác với cơ sở dữ liệu
         }
 
         // Lấy tất cả các đội bóng

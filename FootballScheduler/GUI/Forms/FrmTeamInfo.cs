@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DTO;
 using GUI.Helpers;
-using BUS.Services;
+using BUS.BUSs;
 
 namespace GUI.Forms
 {

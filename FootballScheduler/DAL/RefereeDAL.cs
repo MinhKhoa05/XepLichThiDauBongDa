@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using DAL.Helpers;
 using DTO;
 
-namespace DAL.Repositories
+namespace DAL
 {
-    public class RefereeDal
+    public class RefereeDAL
     {
         private const string Table = "Referee";
 

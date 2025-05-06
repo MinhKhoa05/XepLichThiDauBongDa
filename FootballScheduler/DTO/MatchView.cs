@@ -11,12 +11,11 @@ namespace DTO
 
         public string HomeTeam { get; private set; }
         // Kết quả trận đấu
-        public string Result => Status == 3
+        public string Result => Complete
             ? string.Format("{0} - {1}", HomeGoals, AwayGoals)
             : "vs";
 
         public string AwayTeam { get; private set; }
-        //public string LeagueID { get; private set; }
         
         public string StadiumName { get; private set; }
         public string RefereeName { get; private set; }
@@ -24,10 +23,9 @@ namespace DTO
         private int HomeGoals;
         private int AwayGoals;
         public DateTime KickoffDateTime { get; private set; }
-        private byte Status;
+        public bool Complete;
 
         public MatchView() { }
 
-        public bool DaDau => Status == 3;
     }
 }
