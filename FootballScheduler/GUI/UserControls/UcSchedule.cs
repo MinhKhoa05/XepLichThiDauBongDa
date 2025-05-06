@@ -194,6 +194,12 @@ namespace GUI.UserControls
 
             var match = _matchBUS.GetById(matchId);
 
+            if (match.RefereeID != FrmMain.Account.AccountID && FrmMain.Account.Role.Equals("Referee"))
+            {
+                MyMessageBox.ShowError("Bạn không có quyền chỉnh sửa trận đấu này.");
+                return;
+            }
+
             using (var form = new FrmMatchInfo(match, isUpdateSchedule))
             {
                 form.ShowDialog();
@@ -225,11 +231,13 @@ namespace GUI.UserControls
                 btnEdit.Enabled = false;
                 btnUpdateResult.Enabled = false;
                 btnInsert.Enabled = false;
+                btnExport.Enabled = false;
             }
 
             if (FrmMain.Account.Role.Equals("Referee"))
             {
                 btnUpdateResult.Enabled = true;
+                label2.Visible = false;
             }
         }
     }
