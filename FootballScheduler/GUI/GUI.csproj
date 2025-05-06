@@ -125,11 +125,11 @@
     <Compile Include="Forms\FrmRefereeInfo.Designer.cs">
       <DependentUpon>FrmRefereeInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmStadium.cs">
+    <Compile Include="Forms\FrmStadiumInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmStadium.Designer.cs">
-      <DependentUpon>FrmStadium.cs</DependentUpon>
+    <Compile Include="Forms\FrmStadiumInfo.Designer.cs">
+      <DependentUpon>FrmStadiumInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmTeamInfo.cs">
       <SubType>Form</SubType>
@@ -237,8 +237,8 @@
     <EmbeddedResource Include="Forms\FrmRefereeInfo.resx">
       <DependentUpon>FrmRefereeInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmStadium.resx">
-      <DependentUpon>FrmStadium.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmStadiumInfo.resx">
+      <DependentUpon>FrmStadiumInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTeamInfo.resx">
       <DependentUpon>FrmTeamInfo.cs</DependentUpon>

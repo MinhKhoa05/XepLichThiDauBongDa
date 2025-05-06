@@ -38,16 +38,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnAddStadium = new GUI.CustomUI.Buttons.HoverButton();
             this.cbHomeStadium = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtCoachName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnCancel = new GUI.CustomUI.Buttons.HoverButton();
+            this.btnConfirm = new GUI.CustomUI.Buttons.HoverButton();
             this.txtTeamName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnAddStadium = new GUI.CustomUI.Buttons.HoverButton();
-            this.btnCancel = new GUI.CustomUI.Buttons.HoverButton();
-            this.btnConfirm = new GUI.CustomUI.Buttons.HoverButton();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             this.panelLogo.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -146,7 +146,7 @@
             this.btnUploadLogo.Location = new System.Drawing.Point(0, 0);
             this.btnUploadLogo.Name = "btnUploadLogo";
             this.btnUploadLogo.Size = new System.Drawing.Size(248, 42);
-            this.btnUploadLogo.TabIndex = 4;
+            this.btnUploadLogo.TabIndex = 6;
             this.btnUploadLogo.TabStop = false;
             this.btnUploadLogo.Text = "Chọn ảnh...";
             this.btnUploadLogo.UseVisualStyleBackColor = true;
@@ -201,6 +201,26 @@
             this.guna2Panel2.Size = new System.Drawing.Size(700, 585);
             this.guna2Panel2.TabIndex = 58;
             // 
+            // btnAddStadium
+            // 
+            this.btnAddStadium.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnAddStadium.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddStadium.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.btnAddStadium.ForeColor = System.Drawing.Color.White;
+            this.btnAddStadium.HoverBackColor = System.Drawing.Color.Empty;
+            this.btnAddStadium.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnAddStadium.IconColor = System.Drawing.Color.White;
+            this.btnAddStadium.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnAddStadium.IconSize = 20;
+            this.btnAddStadium.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddStadium.Location = new System.Drawing.Point(425, 452);
+            this.btnAddStadium.Name = "btnAddStadium";
+            this.btnAddStadium.Size = new System.Drawing.Size(117, 36);
+            this.btnAddStadium.TabIndex = 5;
+            this.btnAddStadium.Text = "Thêm sân";
+            this.btnAddStadium.UseVisualStyleBackColor = false;
+            this.btnAddStadium.Click += new System.EventHandler(this.btnAddStadium_Click);
+            // 
             // cbHomeStadium
             // 
             this.cbHomeStadium.BackColor = System.Drawing.Color.Transparent;
@@ -218,7 +238,7 @@
             this.cbHomeStadium.Location = new System.Drawing.Point(21, 452);
             this.cbHomeStadium.Name = "cbHomeStadium";
             this.cbHomeStadium.Size = new System.Drawing.Size(398, 36);
-            this.cbHomeStadium.TabIndex = 83;
+            this.cbHomeStadium.TabIndex = 4;
             // 
             // label5
             // 
@@ -253,7 +273,7 @@
             this.txtEmail.PlaceholderText = "";
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(402, 42);
-            this.txtEmail.TabIndex = 80;
+            this.txtEmail.TabIndex = 2;
             // 
             // txtCoachName
             // 
@@ -276,7 +296,47 @@
             this.txtCoachName.PlaceholderText = "";
             this.txtCoachName.SelectedText = "";
             this.txtCoachName.Size = new System.Drawing.Size(402, 42);
-            this.txtCoachName.TabIndex = 78;
+            this.txtCoachName.TabIndex = 1;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.HoverBackColor = System.Drawing.Color.Empty;
+            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnCancel.IconColor = System.Drawing.Color.White;
+            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnCancel.IconSize = 20;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(49, 520);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(248, 47);
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "Hủy";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.btnConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnConfirm.HoverBackColor = System.Drawing.Color.Empty;
+            this.btnConfirm.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnConfirm.IconColor = System.Drawing.Color.White;
+            this.btnConfirm.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnConfirm.IconSize = 20;
+            this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirm.Location = new System.Drawing.Point(398, 520);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(248, 47);
+            this.btnConfirm.TabIndex = 6;
+            this.btnConfirm.Text = "Xác nhận";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // txtTeamName
             // 
@@ -326,66 +386,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(700, 79);
             this.guna2Panel1.TabIndex = 57;
             // 
-            // btnAddStadium
-            // 
-            this.btnAddStadium.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnAddStadium.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddStadium.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.btnAddStadium.ForeColor = System.Drawing.Color.White;
-            this.btnAddStadium.HoverBackColor = System.Drawing.Color.Empty;
-            this.btnAddStadium.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnAddStadium.IconColor = System.Drawing.Color.White;
-            this.btnAddStadium.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnAddStadium.IconSize = 20;
-            this.btnAddStadium.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddStadium.Location = new System.Drawing.Point(425, 452);
-            this.btnAddStadium.Name = "btnAddStadium";
-            this.btnAddStadium.Size = new System.Drawing.Size(117, 36);
-            this.btnAddStadium.TabIndex = 84;
-            this.btnAddStadium.Text = "Thêm sân";
-            this.btnAddStadium.UseVisualStyleBackColor = false;
-            this.btnAddStadium.Click += new System.EventHandler(this.btnAddStadium_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.HoverBackColor = System.Drawing.Color.Empty;
-            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnCancel.IconColor = System.Drawing.Color.White;
-            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnCancel.IconSize = 20;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(49, 520);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(248, 47);
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Hủy";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.HoverBackColor = System.Drawing.Color.Empty;
-            this.btnConfirm.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnConfirm.IconColor = System.Drawing.Color.White;
-            this.btnConfirm.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnConfirm.IconSize = 20;
-            this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirm.Location = new System.Drawing.Point(398, 520);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(248, 47);
-            this.btnConfirm.TabIndex = 6;
-            this.btnConfirm.Text = "Xác nhận";
-            this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
             // FrmTeamInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -396,8 +396,10 @@
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmTeamInfo";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FrmTeamInfo";
+            this.Text = "Thông tin đội bóng";
             this.Load += new System.EventHandler(this.FrmTeamInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
             this.panelLogo.ResumeLayout(false);

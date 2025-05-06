@@ -39,5 +39,10 @@ namespace BUS.BUSs
         {
             _leagueDal.Delete(id);
         }
+
+        public List<LeagueDTO> Search(string keyword)
+        {
+            return _leagueDal.Search(keyword);
+        }
     }
 }

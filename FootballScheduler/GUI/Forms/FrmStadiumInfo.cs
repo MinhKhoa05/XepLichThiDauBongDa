@@ -5,9 +5,9 @@ using GUI.Helpers;
 
 namespace GUI.Forms
 {
-    public partial class FrmStadium : Form
+    public partial class FrmStadiumInfo : Form
     {
-        public FrmStadium()
+        public FrmStadiumInfo()
         {
             InitializeComponent();
         }

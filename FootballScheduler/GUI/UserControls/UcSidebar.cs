@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using GUI.CustomUI.Buttons;
+using GUI.Forms;
 using GUI.Helpers;
 
 namespace GUI.UserControls
@@ -36,9 +37,19 @@ namespace GUI.UserControls
         // Thêm các mục con vào các nút menu chính.
         private void LoadMenuItems()
         {
-            btnTeam.AddItem(btnListTeam);  // Thêm mục "List Team" vào nút "Team"
-            btnLeague.AddItems(new List<HBMenuItem> { btnListLeague, btnSchedule, btnStandings });  // Thêm các mục vào nút "League"
-            btnReferee.AddItems(new List<HBMenuItem> { btnListReferee });  // Thêm các mục vào nút "Referee"
+            if (FrmMain.Account.Role.Equals("Admin"))
+            {
+                btnTeam.AddItem(btnListTeam);  // Thêm mục "List Team" vào nút "Team"
+                btnLeague.AddItems(new List<HBMenuItem> { btnListLeague, btnSchedule, btnStandings });  // Thêm các mục vào nút "League"
+                btnReferee.AddItems(new List<HBMenuItem> { btnListReferee });  // Thêm các mục vào nút "Referee"
+            }
+            else
+            {
+                btnTeam.Visible = false;  // Ẩn nút "Team" nếu không phải Admin
+                btnReferee.Visible = false;  // Ẩn nút "Referee" nếu không phải Admin
+                btnLeague.AddItems(new List<HBMenuItem> { btnSchedule, btnStandings });  // Thêm các mục vào nút "League"
+
+            }
         }
 
         // Đăng ký sự kiện click cho các mục menu.

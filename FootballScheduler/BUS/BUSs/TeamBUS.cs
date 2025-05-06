@@ -33,7 +33,6 @@ namespace BUS.BUSs
             return _teamDal.Insert(team);
         }
 
-
         // Cập nhật đội bóng
         public void Update(TeamDTO team)
         {
@@ -44,6 +43,11 @@ namespace BUS.BUSs
         public void Delete(string id)
         {
             _teamDal.Delete(id);
+        }
+
+        public List<TeamDTO> Search(string kw)
+        {
+            return _teamDal.Search(kw);
         }
     }
 }

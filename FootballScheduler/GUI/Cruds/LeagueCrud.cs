@@ -28,6 +28,7 @@ namespace GUI.Cruds
             {
                 _leagueBUS.Insert(newLeague);
                 LoadData();
+                MyMessageBox.ShowInformation("Thêm giải đấu thành công!");
             }
         }
 
@@ -43,6 +44,7 @@ namespace GUI.Cruds
             {
                 _leagueBUS.Update(updatedLeague);
                 LoadData();
+                MyMessageBox.ShowInformation("Cập nhật giải đấu thành công!");
             }
         }
 
@@ -52,8 +54,18 @@ namespace GUI.Cruds
             var id = CrudUIHelper.GetSelectedId(_dataGridView, "LeagueID");
             if (id == null) return;
 
-            _leagueBUS.Delete(id);
-            LoadData();
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa giải đấu này?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm == DialogResult.Yes)
+            {
+                _leagueBUS.Delete(id);
+                LoadData();
+                MyMessageBox.ShowInformation("Xóa giải đấu thành công!");
+            }
         }
 
         // Tải lại danh sách lên DataGridView
@@ -79,6 +91,16 @@ namespace GUI.Cruds
                     league => league.EndDate.ToString("dd/MM/yyyy"),
                     league => league.MaxTeams.ToString()
                 });
+
+            MyMessageBox.ShowInformation("Xuất danh sách giải đấu thành công!");
+        }
+
+        // Tìm kiếm giải đấu
+        public void Search(string searchTerm)
+        {
+            var leagues = _leagueBUS.Search(searchTerm);
+            _dataGridView.DataSource = null;
+            _dataGridView.DataSource = leagues;
         }
     }
 }

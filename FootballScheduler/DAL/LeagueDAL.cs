@@ -53,5 +53,20 @@ namespace DAL
             string sql = $"DELETE FROM {Table} WHERE LeagueID = @LeagueID";
             DbConnector.Execute(sql, new { LeagueID = leagueID });
         }
+
+        public List<LeagueDTO> Search(string keyword)
+        {
+            string sql = $@"
+                SELECT * FROM {Table}
+                WHERE 
+                    LeagueID LIKE @kw OR
+                    LeagueName LIKE @kw OR
+                    CONVERT(VARCHAR, StartDate, 103) LIKE @kw OR
+                    CONVERT(VARCHAR, EndDate, 103) LIKE @kw OR
+                    CONVERT(VARCHAR, MaxTeams) LIKE @kw";
+
+            return DbConnector.QueryList<LeagueDTO>(sql, new { kw = $"%{keyword}%" });
+        }
+
     }
 }

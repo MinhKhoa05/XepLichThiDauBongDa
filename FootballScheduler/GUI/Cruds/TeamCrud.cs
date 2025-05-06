@@ -13,7 +13,7 @@ namespace GUI.Curds
     {
         private readonly TeamBUS _teamBUS;
         private readonly DataGridView _dataGridView;
-        
+
         public TeamCrud(DataGridView dgv)
         {
             _teamBUS = new TeamBUS();
@@ -29,6 +29,7 @@ namespace GUI.Curds
             {
                 _teamBUS.Insert(newTeam);
                 LoadData();
+                MyMessageBox.ShowInformation("Thêm đội bóng thành công!");
             }
         }
 
@@ -44,6 +45,7 @@ namespace GUI.Curds
             {
                 _teamBUS.Update(updatedTeam);
                 LoadData();
+                MyMessageBox.ShowInformation("Cập nhật đội bóng thành công!");
             }
         }
 
@@ -53,8 +55,24 @@ namespace GUI.Curds
             var id = CrudUIHelper.GetSelectedId(_dataGridView, "TeamID");
             if (id == null) return;
 
-            _teamBUS.Delete(id);
-            LoadData();
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa đội bóng này?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm != DialogResult.Yes) return;
+
+            try
+            {
+                _teamBUS.Delete(id);
+                LoadData();
+                MyMessageBox.ShowInformation("Xóa đội bóng thành công!");
+            }
+            catch
+            {
+                MyMessageBox.ShowError("Không thể xóa đội bóng!");
+            }
         }
 
         // Tải lại danh sách đội bóng vào DataGridView
@@ -69,10 +87,10 @@ namespace GUI.Curds
         {
             var teams = _teamBUS.GetAll();
             PdfExportHelper.ExportToPdf(
-                teams, // Dữ liệu cần xuất ra
-                "DANH SÁCH ĐỘI BÓNG", // Tiêu đề
-                new List<string> { "Mã Đội Bóng", "Tên Đội Bóng", "Đại diện", "Số Điện Thoại", "Email" }, // Các tiêu đề cột
-                new List<Func<TeamDTO, string>> // Các extractor để lấy dữ liệu từ đối tượng TeamDTO
+                teams,
+                "DANH SÁCH ĐỘI BÓNG",
+                new List<string> { "Mã Đội Bóng", "Tên Đội Bóng", "Đại diện", "Số Điện Thoại", "Email" },
+                new List<Func<TeamDTO, string>>
                 {
                     team => team.TeamID,
                     team => team.TeamName,
@@ -80,6 +98,16 @@ namespace GUI.Curds
                     team => team.Phone,
                     team => team.Email
                 });
+
+            MyMessageBox.ShowInformation("Xuất danh sách đội bóng thành công!");
+        }
+
+        // Tìm kiếm đội bóng
+        public void Search(string kw)
+        {
+            var teams = _teamBUS.Search(kw);
+            _dataGridView.DataSource = null;
+            _dataGridView.DataSource = teams;
         }
     }
 }

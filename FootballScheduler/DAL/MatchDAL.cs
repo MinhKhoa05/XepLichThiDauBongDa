@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DTO;
 
 namespace DAL
@@ -43,62 +43,69 @@ namespace DAL
         // Cập nhật thông tin trận đấu
         public void Update(MatchDTO match)
         {
-            string sql = $@"
-                UPDATE {Table}
-                SET KickoffDateTime = @KickoffDateTime,
-                    StadiumID = @StadiumID,
-                    RefereeID = @RefereeID,
-                    HomeGoals = @HomeGoals,
-                    AwayGoals = @AwayGoals,
-                    Complete = @Complete
-                WHERE MatchID = @MatchID";
+            string sql;
+
+            if (match.Complete)
+            {
+                sql = $@"
+                    UPDATE {Table}
+                    SET HomeGoals = @HomeGoals,
+                        AwayGoals = @AwayGoals,
+                        Complete = 1
+                    WHERE MatchID = @MatchID";
+            }
+            else
+            {
+                sql = $@"
+                    UPDATE {Table}
+                    SET KickoffDateTime = @KickoffDateTime,
+                        StadiumID = @StadiumID,
+                        RefereeID = @RefereeID
+                    WHERE MatchID = @MatchID";
+            }
 
             DbConnector.Execute(sql, match);
         }
 
-        // Hàm kiểm tra trùng lịch thi đấu, trùng sân, trùng trọng tài
-        public string CheckForScheduleConflict(
-            DateTime matchDateTime, string leagueID, string matchID,
-            string homeTeamID, string awayTeamID,
-            string stadiumID, string refereeID)
-        {
-            string sql = @"
-                SELECT TOP 1 MatchID
-                FROM Match
-                WHERE LeagueID = @LeagueID
-                    AND MatchID != @MatchID
-                    AND (
-                    (
-                        (HomeTeamID IN (@HomeTeamID, @AwayTeamID) OR
-                        AwayTeamID IN (@HomeTeamID, @AwayTeamID))
-                        AND ABS(DATEDIFF(DAY, KickoffDateTime, @MatchDateTime)) < 2
-                    )
-                    OR (
-                        StadiumID = @StadiumID AND ABS(DATEDIFF(HOUR, KickoffDateTime, @MatchDateTime)) < 2
-                    )
-                    OR (
-                        RefereeID = @RefereeID AND ABS(DATEDIFF(HOUR, KickoffDateTime, @MatchDateTime)) < 2
-                    )
-                    )";
-
-            var result = DbConnector.QueryValue(sql, new
-            {
-                LeagueID = leagueID,
-                MatchID = matchID,
-                MatchDateTime = matchDateTime,
-                HomeTeamID = homeTeamID,
-                AwayTeamID = awayTeamID,
-                StadiumID = stadiumID,
-                RefereeID = refereeID
-            });
-
-            return result?.ToString(); // trả về MatchID nếu bị trùng
-        }
-
+        // Xóa tất cả trận đấu theo giải đấu
         public void DeleteByLeagueID(string leagueId)
         {
             string sql = $"DELETE FROM {Table} WHERE LeagueID = @LeagueID";
             DbConnector.Execute(sql, new { LeagueID = leagueId });
+        }
+
+        // Lọc danh sách trận đấu theo từ khóa
+        public List<MatchView> Filter(string kw)
+        {
+            if (string.IsNullOrEmpty(kw))
+            {
+                return GetAll();
+            }
+
+            string sql = $@"
+                SELECT * FROM Match
+                WHERE HomeTeamID LIKE @kw OR AwayTeamID LIKE @kw OR RefereeID LIKE @kw
+                ORDER BY KickoffDateTime ASC";
+            var matches = DbConnector.QueryList<MatchDTO>(sql, new { kw = $"%{kw}%" });
+
+            var matchViews = new List<MatchView>();
+            foreach (var match in matches)
+            {
+                var matchView = SelectById(match.MatchID);
+                matchViews.Add(matchView);
+            }
+
+            return matchViews;
+        }
+
+        public MatchView SelectById(string matchId)
+        {
+            string sql = $@"
+                SELECT * FROM v_MatchDetails
+                WHERE MatchID = @MatchID";
+            var match = DbConnector.QuerySingle<MatchView>(sql, new { MatchID = matchId });
+           
+            return match;
         }
     }
 }

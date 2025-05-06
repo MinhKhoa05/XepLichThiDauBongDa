@@ -51,5 +51,11 @@ namespace BUS.BUSs
         {
             return _refereeDal.GetAvailableReferees(newStartTime);
         }
+
+        // Tìm kiếm trọng tài theo từ khóa
+        public List<RefereeDTO> Search(string kw)
+        {
+            return _refereeDal.Search(kw);
+        }
     }
 }

@@ -28,6 +28,7 @@ namespace GUI.Cruds
             {
                 _refereeBUS.Insert(newReferee);
                 LoadData();
+                MyMessageBox.ShowInformation("Thêm trọng tài thành công!");
             }
         }
 
@@ -43,6 +44,7 @@ namespace GUI.Cruds
             {
                 _refereeBUS.Update(updatedReferee);
                 LoadData();
+                MyMessageBox.ShowInformation("Cập nhật trọng tài thành công!");
             }
         }
 
@@ -52,8 +54,24 @@ namespace GUI.Cruds
             var id = CrudUIHelper.GetSelectedId(_dataGridView, "RefereeID");
             if (id == null) return;
 
-            _refereeBUS.Delete(id);
-            LoadData();
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa trọng tài này?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm != DialogResult.Yes) return;
+
+            try
+            {
+                _refereeBUS.Delete(id);
+                LoadData();
+                MyMessageBox.ShowInformation("Xóa trọng tài thành công!");
+            }
+            catch
+            {
+                MyMessageBox.ShowError("Không thể xóa trọng tài!");
+            }
         }
 
         // Tải lại danh sách trọng tài vào DataGridView
@@ -68,10 +86,10 @@ namespace GUI.Cruds
         {
             var referees = _refereeBUS.GetAll();
             PdfExportHelper.ExportToPdf(
-                referees, // Dữ liệu cần xuất ra
-                "DANH SÁCH TRỌNG TÀI", // Tiêu đề
-                new List<string> { "Mã Trọng Tài", "Tên Trọng Tài", "Ngày Sinh", "Số Điện Thoại", "Email" }, // Các tiêu đề cột
-                new List<Func<RefereeDTO, string>> // Các extractor để lấy dữ liệu từ đối tượng RefereeDTO
+                referees,
+                "DANH SÁCH TRỌNG TÀI",
+                new List<string> { "Mã Trọng Tài", "Tên Trọng Tài", "Ngày Sinh", "Số Điện Thoại", "Email" },
+                new List<Func<RefereeDTO, string>>
                 {
                     referee => referee.RefereeID,
                     referee => referee.RefereeName,
@@ -79,6 +97,16 @@ namespace GUI.Cruds
                     referee => referee.PhoneNumber,
                     referee => referee.Email
                 });
+
+            MyMessageBox.ShowInformation("Xuất danh sách trọng tài thành công!");
+        }
+
+        // Tìm kiếm trọng tài theo từ khóa
+        public void Search(string keyword)
+        {
+            var referees = _refereeBUS.Search(keyword);
+            _dataGridView.DataSource = null;
+            _dataGridView.DataSource = referees;
         }
     }
 }

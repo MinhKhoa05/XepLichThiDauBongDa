@@ -31,28 +31,18 @@ namespace BUS.BUSs
 
         public void Update(MatchDTO match)
         {
-            string conflictMatchId = _matchDal.CheckForScheduleConflict(
-                match.KickoffDateTime,
-                match.LeagueID,
-                match.MatchID,
-                match.HomeTeamID,
-                match.AwayTeamID,
-                match.StadiumID,
-                match.RefereeID
-            );
-
-            if (string.IsNullOrEmpty(conflictMatchId))
-            {
-                throw new Exception($"Lịch thi đấu bị trùng với trận đấu khác");
-            }
-
-            match.Complete = true; // Đặt trạng thái là đã hoàn thành
             _matchDal.Update(match);
         }
 
         public void DeleteByLeagueID(string leagueID)
         {
             _matchDal.DeleteByLeagueID(leagueID);
+            (new LeagueTeamDAL()).RemoveTeamsFromLeague(leagueID);
+        }
+
+        public List<MatchView> Filter(string kw)
+        {
+            return _matchDal.Filter(kw);
         }
     }
 }

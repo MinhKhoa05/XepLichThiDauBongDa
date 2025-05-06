@@ -8,12 +8,12 @@ namespace GUI.Forms
 {
     public partial class FrmMain : Form
     {
-        private AccountDTO _account; // Thông tin tài khoản người dùng
-
+        public static AccountDTO Account; // Thông tin tài khoản người dùng
+        
         public FrmMain(AccountDTO account)
         {
             InitializeComponent();
-            _account = account;
+            Account = account;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace GUI.Forms
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            using (var formProfile = new FrmUserInfo(_account))
+            using (var formProfile = new FrmUserInfo())
             {
                 formProfile.ShowDialog();
             }

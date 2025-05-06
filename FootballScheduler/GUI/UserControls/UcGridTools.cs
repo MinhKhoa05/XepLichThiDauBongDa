@@ -26,5 +26,10 @@ namespace GUI.UserControls
         {
             btnEdit.Enabled = btnDelete.Enabled = dgv.CurrentRow != null;
         }
+
+        private void txtSearch_TextChanged(object sender, System.EventArgs e)
+        {
+            _crud.Search(txtSearch.Text);
+        }
     }
 }

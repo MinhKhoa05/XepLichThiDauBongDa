@@ -1,38 +1,34 @@
 ﻿using System;
 using System.Windows.Forms;
 using BUS.BUSs;
-using DTO;
 
 namespace GUI.Forms
 {
     public partial class FrmUserInfo : Form
     {
-        private AccountDTO _account;
-
-        public FrmUserInfo(AccountDTO account)
+        public FrmUserInfo()
         {
             InitializeComponent();
-            _account = account;
         }
 
         private void FormInfo_Load(object sender, EventArgs e)
         {
-            txtAccountID.Text = _account.AccountID;
+            txtAccountID.Text = FrmMain.Account.AccountID;
 
-            switch (_account.Role)
+            switch (FrmMain.Account.Role)
             {
                 case "Admin":
-                    txtUserName.Text = _account.UserName;
+                    txtUserName.Text = FrmMain.Account.UserName;
                     break;
                 case "Referee":
-                    txtUserName.Text = (new RefereeBUS()).GetById(_account.AccountID).RefereeName;
+                    txtUserName.Text = (new RefereeBUS()).GetById(FrmMain.Account.AccountID).RefereeName;
                     break;
                 case "Team":
-                    txtUserName.Text = (new TeamBUS()).GetById(_account.AccountID).TeamName;
+                    txtUserName.Text = (new TeamBUS()).GetById(FrmMain.Account.AccountID).TeamName;
                     break;
             }
 
-            txtRole.Text = _account.Role;
+            txtRole.Text = FrmMain.Account.Role;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -42,10 +38,10 @@ namespace GUI.Forms
 
         private void btnChangePass_Click(object sender, EventArgs e)
         {
-            using (var formChangePass = new FrmChangePass(_account))
+            using (var formChangePass = new FrmChangePass(FrmMain.Account))
             {
                 formChangePass.ShowDialog();
-                this.Hide(); 
+                this.Hide();
             }
         }
     }

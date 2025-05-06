@@ -43,7 +43,7 @@ namespace DAL
                 SET RefereeName = @RefereeName,
                     BirthDate = @BirthDate,
                     Email = @Email,
-                    Phoneumber = @PhoneNumber,
+                    PhoneNumber = @PhoneNumber
                 WHERE RefereeID = @RefereeID";
 
             DbConnector.Execute(sql, referee);
@@ -55,9 +55,6 @@ namespace DAL
             DbConnector.Execute(sql, new { Id = id });
         }
 
-        /// <summary>
-        /// Lấy danh sách trọng tài chưa bận trong khoảng thời gian mới.
-        /// </summary>
         public List<RefereeDTO> GetAvailableReferees(DateTime newStartTime)
         {
             DateTime newEndTime = newStartTime.AddHours(2);
@@ -73,5 +70,19 @@ namespace DAL
 
             return DbConnector.QueryList<RefereeDTO>(sql, new { NewStartTime = newStartTime, NewEndTime = newEndTime });
         }
+
+        public List<RefereeDTO> Search(string keyword)
+        {
+            string sql = $@"
+                SELECT * FROM {Table}
+                WHERE 
+                    RefereeID LIKE @kw OR
+                    RefereeName LIKE @kw OR
+                    Email LIKE @kw OR
+                    PhoneNumber LIKE @kw";
+
+            return DbConnector.QueryList<RefereeDTO>(sql, new { kw = $"%{keyword}%" });
+        }
+
     }
 }

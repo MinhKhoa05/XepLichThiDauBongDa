@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 using BUS.BUSs;
 using DTO;
@@ -10,34 +9,56 @@ namespace GUI.Forms
     public partial class FrmMatchInfo : Form
     {
         private readonly MatchDTO _originalMatch;
+        private readonly bool _isUpdateSchedule;
 
         private readonly TeamBUS teamBUS = new TeamBUS();
         private readonly StadiumBUS stadiumBUS = new StadiumBUS();
         private readonly RefereeBUS refereeBUS = new RefereeBUS();
 
-        public FrmMatchInfo(MatchDTO match = null)
+        public FrmMatchInfo(MatchDTO match = null, bool isUpdateSchedule = true)
         {
             InitializeComponent();
             _originalMatch = match;
+            _isUpdateSchedule = isUpdateSchedule;
         }
 
         private void FrmMatchInfo_Load(object sender, EventArgs e)
         {
             LoadComboBoxStadium();
 
+            // Load referees into the combo box
+            LoadComboBoxReferee();
+
             if (_originalMatch != null)
             {
                 DisplayMatchInfo(_originalMatch);
-                LoadAvailableReferees(_originalMatch.KickoffDateTime);
             }
             else
             {
+                // Default values if there is no match
                 dtpMatchDate.Value = DateTime.Today;
                 numUDHours.Value = 18;
                 numUDMinutes.Value = 0;
                 numUDHomeGoals.Value = 0;
                 numUDAwayGoals.Value = 0;
-                LoadAvailableReferees(DateTime.Today.AddHours(18));
+            }
+
+            // Chế độ: cập nhật lịch hoặc kết quả
+            if (_isUpdateSchedule)
+            {
+                panelLich.Enabled = true;
+                panelResult.Enabled = false;
+
+                cbReferee.Enabled = true; // Enable referee selection
+                cbStadium.Enabled = true; // Enable stadium selection
+            }
+            else
+            {
+                panelLich.Enabled = false;
+                panelResult.Enabled = true;
+
+                cbReferee.Enabled = false; // Disable referee selection
+                cbStadium.Enabled = false; // Disable stadium selection
             }
         }
 
@@ -74,16 +95,19 @@ namespace GUI.Forms
 
         private bool ValidateForm()
         {
-            if (cbStadium.SelectedValue == null)
+            if (_isUpdateSchedule)
             {
-                MyMessageBox.ShowError("Vui lòng chọn sân vận động.");
-                return false;
-            }
+                if (cbStadium.SelectedValue == null)
+                {
+                    MyMessageBox.ShowError("Vui lòng chọn sân vận động.");
+                    return false;
+                }
 
-            if (cbReferee.SelectedValue == null)
-            {
-                MyMessageBox.ShowError("Vui lòng chọn trọng tài.");
-                return false;
+                if (cbReferee.SelectedValue == null)
+                {
+                    MyMessageBox.ShowError("Vui lòng chọn trọng tài.");
+                    return false;
+                }
             }
 
             return true;
@@ -100,11 +124,12 @@ namespace GUI.Forms
                 MatchID = _originalMatch.MatchID,
                 HomeTeamID = _originalMatch?.HomeTeamID,
                 AwayTeamID = _originalMatch?.AwayTeamID,
-                KickoffDateTime = matchTime,
-                HomeGoals = Convert.ToByte(numUDHomeGoals.Value),
-                AwayGoals = Convert.ToByte(numUDAwayGoals.Value),
-                StadiumID = cbStadium.SelectedValue.ToString(),
-                RefereeID = cbReferee.SelectedValue.ToString(),
+                KickoffDateTime = _isUpdateSchedule ? matchTime : _originalMatch.KickoffDateTime,
+                HomeGoals = _isUpdateSchedule ? _originalMatch.HomeGoals : Convert.ToByte(numUDHomeGoals.Value),
+                AwayGoals = _isUpdateSchedule ? _originalMatch.AwayGoals : Convert.ToByte(numUDAwayGoals.Value),
+                StadiumID = _isUpdateSchedule ? cbStadium.SelectedValue.ToString() : _originalMatch.StadiumID,
+                RefereeID = _isUpdateSchedule ? cbReferee.SelectedValue.ToString() : _originalMatch.RefereeID,
+                Complete = !_isUpdateSchedule ? true : _originalMatch.Complete,
             };
         }
 
@@ -113,21 +138,15 @@ namespace GUI.Forms
             cbStadium.DataSource = stadiumBUS.GetAll();
             cbStadium.DisplayMember = "StadiumName";
             cbStadium.ValueMember = "StadiumID";
+            cbStadium.SelectedValue = _originalMatch?.StadiumID;
         }
 
-        private void LoadAvailableReferees(DateTime dateTime)
+        private void LoadComboBoxReferee()
         {
-            var referees = refereeBUS.GetAvailableReferees(dateTime);
-
-            if (_originalMatch != null && !referees.Any(r => r.RefereeID == _originalMatch.RefereeID))
-            {
-                var current = refereeBUS.GetById(_originalMatch.RefereeID);
-                if (current != null) referees.Insert(0, current);
-            }
-
-            cbReferee.DataSource = referees;
+            cbReferee.DataSource = refereeBUS.GetAll();
             cbReferee.DisplayMember = "RefereeName";
             cbReferee.ValueMember = "RefereeID";
+            cbReferee.SelectedValue = _originalMatch?.RefereeID;
         }
     }
 }

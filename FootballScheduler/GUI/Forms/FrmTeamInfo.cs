@@ -157,18 +157,15 @@ namespace GUI.Forms
 
         private void btnAddStadium_Click(object sender, EventArgs e)
         {
-            using (var frm = new FrmStadium())
+            using (var frm = new FrmStadiumInfo())
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     string newStadiumId = frm.Tag as string;
-
-                    if (!string.IsNullOrEmpty(newStadiumId))
-                    {
-                        // Ví dụ: gán vào ComboBox hoặc xử lý khác
-                        cbHomeStadium.Items.Add(newStadiumId);
-                        cbHomeStadium.SelectedItem = newStadiumId;
-                    }
+                    cbHomeStadium.DataSource = new StadiumBUS().GetAll();
+                    cbHomeStadium.DisplayMember = "StadiumName";
+                    cbHomeStadium.ValueMember = "StadiumID";
+                    cbHomeStadium.SelectedValue = newStadiumId;
                 }
             }
         }

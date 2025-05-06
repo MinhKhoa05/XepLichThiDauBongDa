@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using BUS.BUSs;
 using DTO;
@@ -11,6 +12,7 @@ namespace GUI.UserControls
     public partial class UcSchedule : UserControl
     {
         private string leagueId;
+        private bool isRefereeMode = false;
         private readonly MatchBUS _matchBUS = new MatchBUS();
 
         public UcSchedule()
@@ -21,22 +23,46 @@ namespace GUI.UserControls
 
         private void UcSchedule_Load(object sender, EventArgs e)
         {
-            var leagues = new LeagueBUS().GetAll();
-            leagues.Add(new LeagueDTO
+            if (FrmMain.Account.Role.Equals("Referee"))
             {
-                LeagueID = "ALL",
-                LeagueName = "== Tất cả =="
-            });
+                isRefereeMode = true;
+                var referees = new List<RefereeDTO>
+                {
+                    new RefereeBUS().GetById(FrmMain.Account.AccountID),
+                    new RefereeDTO
+                    {
+                        RefereeID = "ALL",
+                        RefereeName = "== Tất cả =="
+                    }
+                };
 
-            cbLeague.DataSource = leagues;
-            cbLeague.DisplayMember = "LeagueName";
-            cbLeague.ValueMember = "LeagueID";
+                cbLeague.DataSource = referees;
+                cbLeague.DisplayMember = "RefereeName";
+                cbLeague.ValueMember = "RefereeID";
+
+                btnUpdateResult.Enabled = true;
+            }
+            else
+            {
+                var leagues = new LeagueBUS().GetAll();
+                leagues.Add(new LeagueDTO
+                {
+                    LeagueID = "ALL",
+                    LeagueName = "== Tất cả =="
+                });
+
+                cbLeague.DataSource = leagues;
+                cbLeague.DisplayMember = "LeagueName";
+                cbLeague.ValueMember = "LeagueID";
+            }
 
             if (cbLeague.SelectedValue != null)
             {
                 leagueId = cbLeague.SelectedValue.ToString();
                 LoadMatchData();
             }
+
+            PhanQuyen();
         }
 
         private void cbLeague_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,28 +79,46 @@ namespace GUI.UserControls
             dgvMatch.DataSource = null;
             dgvMatch.AutoGenerateColumns = false;
 
-            dgvMatch.DataSource = leagueId == "ALL"
-                ? _matchBUS.GetAll()
-                : _matchBUS.GetAll(leagueId);
-            
-            dgvMatch.Columns["LeagueName"].Visible = leagueId == "ALL";
+            List<MatchView> matches;
+
+            if (isRefereeMode)
+            {
+                string refereeId = cbLeague.SelectedValue?.ToString();
+                matches = refereeId == "ALL"
+                    ? _matchBUS.GetAll()
+                    : _matchBUS.Filter(refereeId); // Filter theo RefereeID
+            }
+            else
+            {
+                matches = leagueId == "ALL"
+                    ? _matchBUS.GetAll()
+                    : _matchBUS.GetAll(leagueId);
+            }
+
+            dgvMatch.DataSource = matches;
+            dgvMatch.Columns["LeagueName"].Visible = !isRefereeMode && leagueId == "ALL";
             dgvMatch.BindingContext[dgvMatch.DataSource].SuspendBinding();
         }
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            if (leagueId == "ALL")
+            if (leagueId == "ALL" && !isRefereeMode)
             {
                 MessageBox.Show("Vui lòng chọn giải đấu để xuất dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var matches = _matchBUS.GetAll(leagueId);
+            var matches = isRefereeMode
+                ? _matchBUS.Filter(leagueId)
+                : _matchBUS.GetAll(leagueId);
 
-            var leagueName = new LeagueBUS().GetById(leagueId).LeagueName;
+            string title = isRefereeMode
+                ? "LỊCH THI ĐẤU CỦA TRỌNG TÀI"
+                : $"LỊCH THI ĐẤU GIẢI {new LeagueBUS().GetById(leagueId).LeagueName}";
+
             PdfExportHelper.ExportToPdf(
                 matches,
-                $"LỊCH THI ĐẤU GIẢI {leagueName}",
+                title,
                 new List<string> { "Ngày", "Giờ", "Đội Nhà", "Đội Khách", "Địa điểm", "Trọng tài", "Kết Quả" },
                 new List<Func<MatchView, string>>
                 {
@@ -111,7 +155,6 @@ namespace GUI.UserControls
                 var result = MessageBox.Show("Lịch thi đấu đã tồn tại. Bạn có muốn xóa và tạo lại không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    // Gọi hàm xóa lịch thi đấu theo giải
                     _matchBUS.DeleteByLeagueID(leagueId);
                 }
                 else
@@ -128,17 +171,30 @@ namespace GUI.UserControls
             LoadMatchData();
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            OpenMatchEditor(true);
+        }
+
         private void btnUpdateResult_Click(object sender, EventArgs e)
         {
-            string matchId = dgvMatch.CurrentRow?.Cells["MatchID"].Value.ToString();
+            OpenMatchEditor(false);
+        }
+
+        private void OpenMatchEditor(bool isUpdateSchedule)
+        {
+            string matchId = dgvMatch.CurrentRow?.Cells["MatchID"].Value?.ToString();
 
             if (string.IsNullOrEmpty(matchId))
             {
-                MyMessageBox.ShowError("Vui lòng chọn trận đấu để cập nhật kết quả.");
+                string action = isUpdateSchedule ? "cập nhật lịch thi đấu" : "cập nhật kết quả";
+                MyMessageBox.ShowError($"Vui lòng chọn trận đấu để {action}.");
                 return;
             }
 
-            using (var form = new FrmMatchInfo(_matchBUS.GetById(matchId)))
+            var match = _matchBUS.GetById(matchId);
+
+            using (var form = new FrmMatchInfo(match, isUpdateSchedule))
             {
                 form.ShowDialog();
                 if (form.DialogResult == DialogResult.OK)
@@ -147,14 +203,33 @@ namespace GUI.UserControls
                     try
                     {
                         _matchBUS.Update(updatedMatch);
-                    } catch (Exception ex)
+                        string successAction = isUpdateSchedule ? "Cập nhật lịch thi đấu" : "Cập nhật kết quả";
+                        MyMessageBox.ShowInformation($"{successAction} thành công!");
+                    }
+                    catch (Exception ex)
                     {
-                        MyMessageBox.ShowError($"Cập nhật kết quả thất bại: {ex.Message}");
+                        string errorAction = isUpdateSchedule ? "Thay đổi lịch thi đấu" : "Cập nhật kết quả";
+                        MyMessageBox.ShowError($"{errorAction} thất bại: {ex.Message}");
                         return;
                     }
 
                     LoadMatchData();
                 }
+            }
+        }
+
+        private void PhanQuyen()
+        {
+            if (!FrmMain.Account.Role.Equals("Admin"))
+            {
+                btnEdit.Enabled = false;
+                btnUpdateResult.Enabled = false;
+                btnInsert.Enabled = false;
+            }
+
+            if (FrmMain.Account.Role.Equals("Referee"))
+            {
+                btnUpdateResult.Enabled = true;
             }
         }
     }

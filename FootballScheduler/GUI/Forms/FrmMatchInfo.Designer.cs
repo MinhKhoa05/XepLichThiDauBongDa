@@ -38,17 +38,17 @@
             this.lblAwayTeam = new System.Windows.Forms.Label();
             this.picBoxAwayTeamLogo = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelResult = new Guna.UI2.WinForms.Guna2Panel();
             this.numUDAwayGoals = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.numUDHomeGoals = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpMatchDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelLich = new Guna.UI2.WinForms.Guna2Panel();
             this.numUDMinutes = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.numUDHours = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelKhac = new Guna.UI2.WinForms.Guna2Panel();
             this.btnConfirm = new Guna.UI2.WinForms.Guna2Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cbStadium = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -61,13 +61,13 @@
             this.panelAwayTeam.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAwayTeamLogo)).BeginInit();
-            this.guna2Panel3.SuspendLayout();
+            this.panelResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDAwayGoals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDHomeGoals)).BeginInit();
-            this.guna2Panel4.SuspendLayout();
+            this.panelLich.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDHours)).BeginInit();
-            this.guna2Panel1.SuspendLayout();
+            this.panelKhac.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHomeTeam
@@ -184,19 +184,20 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Đội khách";
             // 
-            // guna2Panel3
+            // panelResult
             // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.Controls.Add(this.numUDAwayGoals);
-            this.guna2Panel3.Controls.Add(this.numUDHomeGoals);
-            this.guna2Panel3.Controls.Add(this.label3);
-            this.guna2Panel3.Controls.Add(this.label2);
-            this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(36)))), ((int)(((byte)(100)))));
-            this.guna2Panel3.Location = new System.Drawing.Point(245, 169);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(374, 94);
-            this.guna2Panel3.TabIndex = 3;
+            this.panelResult.BackColor = System.Drawing.Color.Transparent;
+            this.panelResult.Controls.Add(this.numUDAwayGoals);
+            this.panelResult.Controls.Add(this.numUDHomeGoals);
+            this.panelResult.Controls.Add(this.label3);
+            this.panelResult.Controls.Add(this.label2);
+            this.panelResult.Enabled = false;
+            this.panelResult.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(36)))), ((int)(((byte)(100)))));
+            this.panelResult.Location = new System.Drawing.Point(245, 169);
+            this.panelResult.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelResult.Name = "panelResult";
+            this.panelResult.Size = new System.Drawing.Size(374, 94);
+            this.panelResult.TabIndex = 3;
             // 
             // numUDAwayGoals
             // 
@@ -262,19 +263,19 @@
             this.dtpMatchDate.TabIndex = 4;
             this.dtpMatchDate.Value = new System.DateTime(2025, 4, 2, 18, 30, 6, 716);
             // 
-            // guna2Panel4
+            // panelLich
             // 
-            this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel4.Controls.Add(this.numUDMinutes);
-            this.guna2Panel4.Controls.Add(this.numUDHours);
-            this.guna2Panel4.Controls.Add(this.label1);
-            this.guna2Panel4.Controls.Add(this.dtpMatchDate);
-            this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(36)))), ((int)(((byte)(100)))));
-            this.guna2Panel4.Location = new System.Drawing.Point(245, 17);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(374, 144);
-            this.guna2Panel4.TabIndex = 6;
+            this.panelLich.BackColor = System.Drawing.Color.Transparent;
+            this.panelLich.Controls.Add(this.numUDMinutes);
+            this.panelLich.Controls.Add(this.numUDHours);
+            this.panelLich.Controls.Add(this.label1);
+            this.panelLich.Controls.Add(this.dtpMatchDate);
+            this.panelLich.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(36)))), ((int)(((byte)(100)))));
+            this.panelLich.Location = new System.Drawing.Point(245, 17);
+            this.panelLich.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelLich.Name = "panelLich";
+            this.panelLich.Size = new System.Drawing.Size(374, 144);
+            this.panelLich.TabIndex = 6;
             // 
             // numUDMinutes
             // 
@@ -314,7 +315,12 @@
             this.numUDHours.Location = new System.Drawing.Point(208, 71);
             this.numUDHours.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numUDHours.Maximum = new decimal(new int[] {
-            23,
+            20,
+            0,
+            0,
+            0});
+            this.numUDHours.Minimum = new decimal(new int[] {
+            8,
             0,
             0,
             0});
@@ -340,20 +346,20 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Ngày giờ thi đấu";
             // 
-            // guna2Panel1
+            // panelKhac
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.Controls.Add(this.btnConfirm);
-            this.guna2Panel1.Controls.Add(this.label6);
-            this.guna2Panel1.Controls.Add(this.cbStadium);
-            this.guna2Panel1.Controls.Add(this.label5);
-            this.guna2Panel1.Controls.Add(this.cbReferee);
-            this.guna2Panel1.Controls.Add(this.label4);
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(36)))), ((int)(((byte)(100)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(245, 270);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(374, 359);
-            this.guna2Panel1.TabIndex = 7;
+            this.panelKhac.BackColor = System.Drawing.Color.Transparent;
+            this.panelKhac.Controls.Add(this.btnConfirm);
+            this.panelKhac.Controls.Add(this.label6);
+            this.panelKhac.Controls.Add(this.cbStadium);
+            this.panelKhac.Controls.Add(this.label5);
+            this.panelKhac.Controls.Add(this.cbReferee);
+            this.panelKhac.Controls.Add(this.label4);
+            this.panelKhac.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(36)))), ((int)(((byte)(100)))));
+            this.panelKhac.Location = new System.Drawing.Point(245, 270);
+            this.panelKhac.Name = "panelKhac";
+            this.panelKhac.Size = new System.Drawing.Size(374, 359);
+            this.panelKhac.TabIndex = 7;
             // 
             // btnConfirm
             // 
@@ -392,7 +398,6 @@
             this.cbStadium.BorderRadius = 10;
             this.cbStadium.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbStadium.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbStadium.Enabled = false;
             this.cbStadium.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbStadium.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbStadium.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -421,7 +426,6 @@
             this.cbReferee.BorderRadius = 10;
             this.cbReferee.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbReferee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbReferee.Enabled = false;
             this.cbReferee.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbReferee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbReferee.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -449,9 +453,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(43)))), ((int)(((byte)(90)))));
             this.ClientSize = new System.Drawing.Size(864, 647);
-            this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.guna2Panel4);
-            this.Controls.Add(this.guna2Panel3);
+            this.Controls.Add(this.panelKhac);
+            this.Controls.Add(this.panelLich);
+            this.Controls.Add(this.panelResult);
             this.Controls.Add(this.panelAwayTeam);
             this.Controls.Add(this.panelHomeTeam);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -463,7 +467,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormEditMatch";
+            this.Text = "FrmMatchInfo";
             this.Load += new System.EventHandler(this.FrmMatchInfo_Load);
             this.panelHomeTeam.ResumeLayout(false);
             this.panelHomeTeam.PerformLayout();
@@ -473,16 +477,16 @@
             this.panelAwayTeam.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAwayTeamLogo)).EndInit();
-            this.guna2Panel3.ResumeLayout(false);
-            this.guna2Panel3.PerformLayout();
+            this.panelResult.ResumeLayout(false);
+            this.panelResult.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDAwayGoals)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDHomeGoals)).EndInit();
-            this.guna2Panel4.ResumeLayout(false);
-            this.guna2Panel4.PerformLayout();
+            this.panelLich.ResumeLayout(false);
+            this.panelLich.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDHours)).EndInit();
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
+            this.panelKhac.ResumeLayout(false);
+            this.panelKhac.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -491,13 +495,13 @@
 
         private Guna.UI2.WinForms.Guna2Panel panelHomeTeam;
         private Guna.UI2.WinForms.Guna2Panel panelAwayTeam;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2Panel panelResult;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpMatchDate;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private Guna.UI2.WinForms.Guna2Panel panelLich;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel panelKhac;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2ComboBox cbReferee;
