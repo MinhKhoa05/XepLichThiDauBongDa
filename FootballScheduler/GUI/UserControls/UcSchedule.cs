@@ -247,14 +247,11 @@ namespace GUI.UserControls
                 btnUpdateResult.Enabled = false;
                 btnInsert.Enabled = false;
                 btnExport.Enabled = false;
+                label2.Visible = false;
             }
             else if (FrmMain.Account.Role.Equals("Referee"))
             {
                 btnUpdateResult.Enabled = true;
-                label2.Visible = false;
-            } else
-            {
-                label2.Visible = false;
             }
         }
     }

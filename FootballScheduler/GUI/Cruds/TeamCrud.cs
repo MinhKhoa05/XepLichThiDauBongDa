@@ -89,7 +89,7 @@ namespace GUI.Curds
             _dataGridView.Columns["Phone"].HeaderText = "Số Điện Thoại";
             _dataGridView.Columns["Email"].HeaderText = "Email";
 
-            _dataGridView.Columns["StadiumID"].Visible = false;
+            _dataGridView.Columns["HomeStadiumID"].Visible = false;
         }
 
         // Xuất danh sách đội bóng ra PDF
